@@ -144,7 +144,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .wlist li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;background:var(--vermilion);border-radius:50%}
 .wart{border:2px solid var(--ink);background:var(--paper);padding:10px;position:relative}
 .wart svg{width:100%;height:auto;display:block}
-.wart .acap{margin-top:8px;font-size:12px}
+.wart .acap{margin-top:8px;font-size:12px;text-wrap:balance}
 
 /* ============ METHOD ============ */
 #method{background:var(--night);color:var(--paper);max-width:none}
@@ -475,7 +475,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <div>
         <ul class="wlist">
           <li>Evaluated on 36 held-out district-year observations (a small test set): best model F1 0.875, ROC-AUC 0.963.</li>
-          <li>Trained on historical data covering 12 districts and 52 flood events.</li>
+          <li>Trained on 52 documented flood events across 12 districts, plus 36 synthetic non-flood observations.</li>
           <li>I kept one platform for the public and for authorities instead of two tools.</li>
         </ul>
         <span class="sticker">F1 0.875 &#183; n = 36</span>
@@ -501,14 +501,14 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
         <g>
           <rect x="20" y="60" width="76" height="100" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
-          <text x="34" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
+          <text x="42" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
           <rect x="112" y="60" width="76" height="100" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
-          <text x="126" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
+          <text x="134" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
           <rect x="204" y="60" width="76" height="100" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
-          <text x="216" y="110" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">YOU ARE</text>
-          <text x="222" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">HERE</text>
+          <text x="226" y="110" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">YOU ARE</text>
+          <text x="226" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">HERE</text>
           <rect x="296" y="60" width="76" height="100" fill="#F1EADB" stroke="#15120F" stroke-width="2" stroke-dasharray="6 5"/>
-          <text x="306" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOCKED</text>
+          <text x="318" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOCKED</text>
           <path d="M97 110 L105 110 M189 110 L197 110 M281 110 L289 110" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
             <animate attributeName="stroke-dashoffset" from="56" to="0" dur="2.4s" repeatCount="indefinite"/>
           </path>
@@ -530,7 +530,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="42" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#F1EADB">DONE</text>
         <rect x="130" y="56" width="100" height="130" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
         <text x="142" y="112" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">YOU ARE</text>
-        <text x="156" y="132" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">HERE</text>
+        <text x="142" y="132" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">HERE</text>
         <rect x="244" y="56" width="100" height="130" fill="#F1EADB" stroke="#15120F" stroke-width="2" stroke-dasharray="6 5"/>
         <text x="262" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">LOCKED</text>
         <line x1="116" y1="121" x2="126" y2="121" stroke="#E5462A" stroke-width="3"/>
@@ -612,7 +612,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <ellipse cx="224" cy="146" rx="20" ry="12" fill="#CDB99B"/>
         <rect x="157" y="116" width="44" height="32" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
         <text x="164" y="104" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">RICE</text>
-        <rect x="208" y="130" width="42" height="36" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <rect x="204" y="130" width="46" height="36" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
         <text x="212" y="181" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">DAAL</text>
         <rect x="40" y="268" width="320" height="12" fill="#CDB99B"/>
         <rect x="110" y="268" width="150" height="12" fill="#0E5A57"/>
