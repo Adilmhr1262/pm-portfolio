@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aadil Ali Mahar - Product Manager</title>
+<meta name="description" content="Portfolio of Aadil Ali Mahar, Product Manager. 2+ years at Smart Marketing Methods (Germany, remote). I build machine learning and full-stack products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1EADB; --ink:#15120F; --vermilion:#E5462A; --teal:#0E5A57;
+  --turmeric:#E3A22C; --clay:#CDB99B; --night:#0D1513;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Schibsted Grotesk',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--vermilion);color:var(--paper)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* paper grain */
+.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* type utilities */
+.mono{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px}
+.display{font-family:'Fraunces',serif}
+.secnum{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.75;margin-bottom:14px}
+.secnum b{color:var(--vermilion);font-weight:500}
+section{padding:9vh 6vw;position:relative;max-width:1500px;margin:0 auto}
+h2.stitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,5vw,72px);line-height:1.02;letter-spacing:-.015em;margin-bottom:18px}
+h2.stitle em{font-style:italic}
+h2.stitle .hot{color:var(--vermilion);font-style:italic}
+
+/* reveal */
+.reveal{overflow:hidden}
+.reveal>span{display:block;transform:translateY(110%);}
+
+/* wobbly hand underline */
+.uw{position:relative;white-space:nowrap}
+.uw::after{content:"";position:absolute;left:-2%;bottom:-.18em;width:104%;height:.32em;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 Q 12 3, 24 7 T 46 7 T 68 6 T 90 8 T 118 5' fill='none' stroke='%23E5462A' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background-size:100% 100%;}
+
+/* preloader */
+#loader{position:fixed;inset:0;background:var(--paper);z-index:3000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;cursor:pointer;transition:opacity .5s}
+#loader.gone{opacity:0;pointer-events:none}
+#loader svg{width:72px;height:72px}
+#loader .draw{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* custom cursor */
+#cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--vermilion);z-index:2500;pointer-events:none;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s;display:none}
+#cursor.big{width:64px;height:64px;background:transparent;border:2px solid var(--vermilion)}
+#cursor .clabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--vermilion);opacity:0}
+#cursor.big .clabel{opacity:1}
+@media (pointer:fine){#cursor{display:block}}
+
+/* scroll progress */
+#progress{position:fixed;left:0;top:0;bottom:0;width:26px;z-index:1500;pointer-events:none}
+#progress .rail{position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--clay)}
+#progress .fill{position:absolute;left:12px;top:0;width:2px;background:var(--ink);height:0}
+#progress .pnum{position:absolute;left:4px;top:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;writing-mode:vertical-rl;opacity:.7}
+
+/* ============ HERO ============ */
+#hero{min-height:100vh;max-width:none;padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+#terrain{position:absolute;inset:0;z-index:0}
+#terrain canvas{display:block}
+.hero-inner{position:relative;z-index:2;padding:12vh 6vw 4vh;pointer-events:none}
+.hero-inner a{pointer-events:auto}
+.eyebrow{margin-bottom:2vh}
+.giant{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(58px,13.5vw,208px);line-height:.92;letter-spacing:-.025em}
+.giant em{font-style:italic;font-weight:400}
+.giant .vm{color:var(--vermilion);font-style:italic}
+.positioning{font-size:clamp(17px,1.6vw,22px);max-width:34ch;margin-top:2.5vh}
+.hero-links{margin-top:3vh;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.tlink{font-weight:600;text-decoration:none;border-bottom:2px solid var(--vermilion);padding-bottom:2px}
+.tlink:hover{background:var(--vermilion);color:var(--paper)}
+.statusline{margin-top:3vh}
+.archwrap{position:absolute;z-index:3;right:6vw;top:16vh;width:min(300px,34vw);pointer-events:auto}
+.arch{border-radius:150px 150px 8px 8px;overflow:hidden;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--vermilion);background:var(--clay)}
+.arch img{width:100%;height:auto;filter:sepia(.22) saturate(1.05) contrast(1.02)}
+.archcap{margin-top:14px;text-align:center}
+.badge-rot{position:absolute;z-index:3;left:5vw;bottom:26vh;width:118px;height:118px;pointer-events:none}
+.badge-rot svg{width:100%;height:100%;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.callouts{position:absolute;inset:0;z-index:2;pointer-events:none}
+.callout{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--paper);background:var(--ink);padding:5px 10px;opacity:0;transform:translateY(8px)}
+.scrollcue{position:absolute;z-index:3;left:6vw;bottom:3vh}
+.sticker{display:inline-block;background:var(--turmeric);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;padding:6px 12px;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--ink);margin:6px 8px 6px 0}
+
+/* contour divider */
+.divider{max-width:none;padding:0;margin:0}
+.divider svg{display:block;width:100%;height:90px}
+
+/* ============ INTRO ============ */
+#intro p{max-width:62ch;margin-bottom:1.2em;font-size:18px}
+#intro p:first-of-type{font-size:21px}
+
+/* ============ WORK ============ */
+.work{border-top:2px solid var(--ink);padding:34px 0;display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start}
+.work:last-of-type{border-bottom:2px solid var(--ink)}
+.wnum{font-family:'Fraunces',serif;font-size:clamp(48px,4.5vw,76px);font-weight:300;line-height:1;color:var(--clay)}
+.work h3{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:-.01em;margin:6px 0 4px}
+.work h3 em{font-style:italic}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 14px}
+.work p{max-width:52ch;margin-bottom:.9em}
+.wlist{list-style:none;margin:12px 0}
+.wlist li{padding-left:20px;position:relative;margin-bottom:6px;font-size:16px}
+.wlist li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;background:var(--vermilion);border-radius:50%}
+.wart{border:2px solid var(--ink);background:var(--paper);padding:10px;position:relative}
+.wart svg{width:100%;height:auto;display:block}
+.wart .acap{margin-top:8px}
+
+/* ============ METHOD ============ */
+#method{background:var(--night);color:var(--paper);max-width:none}
+#method .inner{max-width:1500px;margin:0 auto}
+#method .secnum{color:var(--paper);opacity:.8}
+#method h2.stitle{color:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:4vh;border-top:2px solid var(--clay)}
+.step{padding:22px 18px 8px;border-right:1px dashed var(--clay);position:relative}
+.step:last-child{border-right:none}
+.step .snum{font-family:'IBM Plex Mono',monospace;color:var(--turmeric);font-size:12px;letter-spacing:.2em}
+.step h4{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:8px 0}
+.step p{font-size:15px;line-height:1.55;opacity:.92}
+.step .art{margin-top:10px}
+
+/* ============ ARTIFACTS ============ */
+.sample-note{border:2px dashed var(--vermilion);padding:12px 16px;margin:18px 0;max-width:70ch;font-size:15px}
+.tabs{display:flex;gap:0;margin-top:26px;border:2px solid var(--ink);width:max-content;max-width:100%}
+.tabbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:transparent;border:none;border-right:2px solid var(--ink);padding:14px 22px;cursor:pointer;color:var(--ink)}
+.tabbtn:last-child{border-right:none}
+.tabbtn.on{background:var(--ink);color:var(--paper)}
+.tabpane{display:none;border:2px solid var(--ink);border-top:none;padding:30px;max-width:1000px;background:#F6F1E3}
+.tabpane.on{display:block}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bcol h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.card{background:var(--paper);border:2px solid var(--ink);padding:14px;margin-bottom:12px;box-shadow:4px 4px 0 var(--clay)}
+.card b{display:block;margin-bottom:6px}
+.card .mono{opacity:.7}
+.prd h4{font-family:'Fraunces',serif;font-size:26px;margin-bottom:6px}
+.prd h6{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin:18px 0 6px;color:var(--teal)}
+.prd p,.prd li{font-size:15.5px}
+.prd ul{margin-left:20px}
+table.rice{width:100%;border-collapse:collapse;font-size:15px}
+table.rice th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-align:left;border-bottom:2px solid var(--ink);padding:10px 8px;cursor:pointer;user-select:none}
+table.rice td{border-bottom:1px solid var(--clay);padding:10px 8px}
+table.rice th:hover{color:var(--vermilion)}
+
+/* ============ EXPERIENCE ============ */
+.ledger{border-top:2px solid var(--ink);margin-top:20px}
+.lrow{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--clay)}
+.ldate{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:4px}
+.lrow h4{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+.lrow .role{font-weight:600}
+.lrow ul{list-style:none;margin-top:8px}
+.lrow li{font-size:15.5px;padding-left:18px;position:relative;margin-bottom:5px}
+.lrow li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--teal);border-radius:50%}
+
+/* ============ TOOLKIT ============ */
+table.tools{width:100%;border-collapse:collapse;margin-top:20px}
+table.tools th{font-family:'Fraunces',serif;font-size:22px;font-weight:600;text-align:left;padding:14px 16px 14px 0;border-bottom:2px solid var(--ink);vertical-align:top;width:33%}
+table.tools td{padding:14px 16px 22px 0;vertical-align:top;font-size:15.5px;border-bottom:1px solid var(--clay)}
+table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
+
+/* ============ ABOUT ============ */
+#about .agrid{display:grid;grid-template-columns:340px 1fr;gap:5vw;align-items:start;margin-top:26px}
+.photocard{background:#FBF8EF;border:1px solid var(--clay);padding:14px 14px 46px;transform:rotate(-2deg);box-shadow:6px 8px 0 rgba(21,18,15,.12);position:relative;max-width:340px}
+.photocard::before,.photocard::after{content:"";position:absolute;top:-14px;width:74px;height:26px;background:rgba(227,162,44,.75);border:1px solid rgba(21,18,15,.15)}
+.photocard::before{left:18px;transform:rotate(-8deg)}
+.photocard::after{right:18px;transform:rotate(7deg)}
+.photocard img{width:100%}
+.photocard .pcap{margin-top:12px;text-align:center}
+#about p{max-width:60ch;margin-bottom:1em}
+.aboutlist{list-style:none;margin-top:14px}
+.aboutlist li{font-size:15.5px;margin-bottom:6px}
+.aboutlist .mono{opacity:.65;display:inline-block;min-width:120px}
+
+/* ============ CONTACT ============ */
+#contact{max-width:none;background:var(--paper);text-align:left}
+#contact .bigmail{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,7vw,110px);letter-spacing:-.02em;line-height:1.05;word-break:break-all;text-decoration:none;border-bottom:4px solid var(--vermilion)}
+#contact .bigmail:hover{background:var(--vermilion);color:var(--paper)}
+.crows{margin-top:4vh;display:flex;gap:34px;flex-wrap:wrap;align-items:center}
+.cbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:14px 24px;cursor:pointer;box-shadow:4px 4px 0 var(--vermilion)}
+.cbtn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--vermilion)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
+.pattern-band{height:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='34'%3E%3Cg fill='none' stroke='%23CDB99B' stroke-width='1.4'%3E%3Cpath d='M24 4 L40 17 L24 30 L8 17 Z'/%3E%3Cpath d='M24 12 L32 17 L24 22 L16 17 Z'/%3E%3Ccircle cx='0' cy='0' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='48' cy='0' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='0' cy='34' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='48' cy='34' r='1.6' fill='%23CDB99B'/%3E%3C/g%3E%3C/svg%3E");background-repeat:repeat-x;opacity:.9}
+.foot-inner{padding:34px 6vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;max-width:1500px;margin:0 auto}
+.totop{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--vermilion)}
+
+/* count up */
+.count{font-variant-numeric:tabular-nums}
+
+@media (max-width:900px){
+  .work{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{border-right:none;border-bottom:1px dashed var(--clay)}
+  .lrow{grid-template-columns:1fr;gap:6px}
+  #about .agrid{grid-template-columns:1fr}
+  .board{grid-template-columns:1fr}
+  table.tools th,table.tools td{display:block;width:100%}
+  .archwrap{position:relative;right:auto;top:auto;margin:4vh 6vw 0;width:min(260px,70vw)}
+  .badge-rot{display:none}
+  .hero-inner{padding-top:6vh}
+  .callout{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal>span{transform:none}
+  .badge-rot svg{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"><span class="clabel"></span></div>
+<div id="progress" aria-hidden="true"><div class="rail"></div><div class="fill"></div><span class="pnum">01</span></div>
+
+<div id="loader" role="button" aria-label="Skip intro" tabindex="0">
+  <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
+    <path class="draw" d="M36 6 L62 36 L36 66 L10 36 Z" stroke="#15120F" stroke-width="2.5"/>
+    <path class="draw" d="M36 20 L50 36 L36 52 L22 36 Z" stroke="#E5462A" stroke-width="2.5"/>
+    <circle class="draw" cx="36" cy="36" r="3.5" fill="#E5462A"/>
+  </svg>
+  <div class="mono">Aadil Ali Mahar - Portfolio</div>
+</div>
+
+<!-- 01 / HERO -->
+<section id="hero">
+  <div id="terrain" aria-hidden="true"></div>
+  <div class="archwrap">
+    <div class="arch"><img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar"></div>
+    <div class="archcap mono">Portrait - Pakistan</div>
+  </div>
+  <div class="badge-rot" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+      <text style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:2.5px;fill:#15120F">
+        <textPath href="#circ">PRODUCT MANAGER - REMOTE - OPEN TO ROLES - </textPath>
+      </text>
+      <circle cx="60" cy="60" r="7" fill="#E5462A"/>
+    </svg>
+  </div>
+  <div class="callouts" aria-hidden="true">
+    <span class="callout" data-co="0" style="left:8%;top:38%">DISCOVER</span>
+    <span class="callout" data-co="1" style="left:20%;top:30%">DEFINE</span>
+    <span class="callout" data-co="2" style="left:34%;top:24%">DESIGN</span>
+    <span class="callout" data-co="3" style="left:48%;top:19%">DELIVER</span>
+    <span class="callout" data-co="4" style="left:62%;top:15%">MEASURE</span>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow mono reveal"><span>01 / Hello - Aadil Ali Mahar</span></div>
+    <h1 class="giant reveal"><span>AADIL <em>ALI</em> <span class="vm">MAHAR</span></span></h1>
+    <p class="positioning">Product manager who ships machine learning and full-stack products end to end. I read the data, talk to engineers, and build.</p>
+    <div class="hero-links">
+      <a class="tlink" href="#work" data-clabel="VIEW">See the work</a>
+      <a class="tlink" href="mailto:adilmahar72@gmail.com" data-clabel="EMAIL">Email me</a>
+    </div>
+    <div class="statusline mono">Remote. Open to Product Manager roles.</div>
+  </div>
+  <div class="scrollcue mono">Scroll - the survey begins</div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <defs><filter id="wob"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter></defs>
+    <g filter="url(#wob)" fill="none" stroke="#CDB99B" stroke-width="2">
+      <path d="M0 70 Q 90 40, 180 58 T 360 55 T 540 62 T 720 50 T 900 60 T 1080 52 T 1260 62 T 1440 55"/>
+      <path d="M0 78 Q 100 52, 200 66 T 400 62 T 600 70 T 800 58 T 1000 68 T 1200 60 T 1440 66" stroke-width="1.4"/>
+      <path d="M0 60 Q 120 34, 240 50 T 480 46 T 720 54 T 960 44 T 1200 54 T 1440 48" stroke-width="1.2"/>
+    </g>
+  </svg>
+</div>
+
+<!-- 02 / INTRO -->
+<section id="intro">
+  <div class="secnum"><b>02</b> / Intro</div>
+  <h2 class="stitle reveal"><span>I manage products <em class="hot">and</em> build them.</span></h2>
+  <p>I am a product manager with 2+ years at Smart Marketing Methods, a Germany-based company, working remotely. I run discovery, write the requirements, prioritize the backlog, and stay with the work through delivery. I also build: full-stack web apps, Android apps, and machine learning models.</p>
+  <p>That combination is my edge. I can <span class="uw">read the data myself</span>, talk to engineers in their language, and make decisions with users in the room. Below is the work, the method, and the artifacts.</p>
+</section>
+
+<!-- 03 / WORK -->
+<section id="work">
+  <div class="secnum"><b>03</b> / Selected work</div>
+  <h2 class="stitle reveal"><span>Four builds, <em>four</em> lessons.</span></h2>
+
+  <article class="work">
+    <div>
+      <div class="wnum">01</div>
+      <h3>FloodSafe <em>Pakistan</em></h3>
+      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web + Mobile</span><span>Status: working prototype</span></div>
+      <p>A flood-risk prediction and early-warning platform. Three machine learning models classify flood occurrence; the best reaches <b>F1 0.875</b> and <b>ROC-AUC 0.963</b>. A Flutter app and a Next.js web app sit on a FastAPI backend with PostgreSQL/PostGIS for spatial data, plus an authority command centre.</p>
+      <ul class="wlist">
+        <li>Trained on historical flood-event data: 12 districts, 52 events, evaluated on 36 held-out district-year observations.</li>
+        <li>Product call: one platform for the public and for authorities, not two tools.</li>
+        <li>[ADD: dataset and evaluation context]</li>
+      </ul>
+      <span class="sticker">F1 0.875</span>
+    </div>
+    <div class="wart">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Contour map with rising water band">
+        <defs><filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter></defs>
+        <g filter="url(#wob2)" fill="none" stroke="#0E5A57" stroke-width="2">
+          <path d="M20 250 Q 80 200, 140 220 T 260 200 T 380 220"/>
+          <path d="M20 220 Q 90 170, 150 190 T 270 170 T 380 190"/>
+          <path d="M20 190 Q 100 140, 160 160 T 280 140 T 380 160"/>
+          <path d="M20 160 Q 110 110, 170 130 T 290 110 T 380 130"/>
+          <path d="M20 130 Q 120 80, 180 100 T 300 85 T 380 100"/>
+        </g>
+        <rect x="20" y="205" width="360" height="70" fill="#0E5A57" opacity="0.35">
+          <animate attributeName="y" values="235;205;235" dur="5s" repeatCount="indefinite"/>
+          <animate attributeName="height" values="40;70;40" dur="5s" repeatCount="indefinite"/>
+        </rect>
+        <text x="30" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 - RISK TERRAIN</text>
+        <circle cx="200" cy="150" r="6" fill="#E5462A"/>
+        <text x="214" y="154" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#E5462A">PREDICTED ZONE</text>
+      </svg>
+      <div class="acap mono">Fig. 01 - contour map, water rising</div>
+    </div>
+  </article>
+
+  <article class="work">
+    <div>
+      <div class="wnum">02</div>
+      <h3>PALMS</h3>
+      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web platform</span><span>Status: independent build</span></div>
+      <p>A mastery-based learning platform for education professors. It organizes courses, topics, lessons, and assessments, then guides students along personalised pathways with explainable recommendations that state why an activity is suggested.</p>
+      <ul class="wlist">
+        <li>Product call: explainability first, so a professor trusts the recommendation enough to act on it.</li>
+        <li>Stack: FastAPI, PostgreSQL, Next.js, Docker.</li>
+        <li>[ADD: metric]</li>
+      </ul>
+    </div>
+    <div class="wart">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Stair of mastery gates with a path">
+        <g>
+          <rect x="40" y="220" width="60" height="40" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+          <rect x="110" y="180" width="60" height="80" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+          <rect x="180" y="140" width="60" height="120" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
+          <rect x="250" y="100" width="60" height="160" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+          <rect x="320" y="60" width="40" height="200" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
+          <path d="M70 220 L140 180 L210 140 L280 100 L340 60" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
+            <animate attributeName="stroke-dashoffset" from="56" to="0" dur="2.4s" repeatCount="indefinite"/>
+          </path>
+          <circle cx="70" cy="220" r="6" fill="#E5462A"><animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/></circle>
+        </g>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 - MASTERY GATES</text>
+      </svg>
+      <div class="acap mono">Fig. 02 - the path through the gates</div>
+    </div>
+  </article>
+
+  <article class="work">
+    <div>
+      <div class="wnum">03</div>
+      <h3>Health <em>and</em> Care</h3>
+      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Android</span><span>Status: final-year project - Grade A</span></div>
+      <p>An Android ambulance application: booking, one-tap SOS, live tracking, driver communication, booking history, and admin management. Built with Kotlin, Firebase Authentication, Firestore, and Google Maps.</p>
+      <ul class="wlist">
+        <li>Product call: one-tap SOS before anything else, because in an emergency nobody fills a form.</li>
+        <li>Final-year project, The Islamia University of Bahawalpur. Grade A.</li>
+      </ul>
+      <span class="sticker">GRADE A</span>
+    </div>
+    <div class="wart">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Route line with pulsing dispatch dot on street grid">
+        <g stroke="#CDB99B" stroke-width="1.5">
+          <path d="M0 60 H400 M0 120 H400 M0 180 H400 M0 240 H400"/>
+          <path d="M60 0 V300 M140 0 V300 M220 0 V300 M300 0 V300 M370 0 V300"/>
+        </g>
+        <path id="route" d="M60 240 L60 180 L140 180 L140 120 L220 120 L220 60 L300 60" fill="none" stroke="#15120F" stroke-width="3"/>
+        <circle r="8" fill="#E5462A">
+          <animateMotion dur="4s" repeatCount="indefinite" rotate="0"><mpath href="#route"/></animateMotion>
+        </circle>
+        <rect x="286" y="46" width="28" height="28" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
+        <text x="292" y="65" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#F1EADB">H</text>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 - DISPATCH ROUTE</text>
+      </svg>
+      <div class="acap mono">Fig. 03 - the dot is the ambulance</div>
+    </div>
+  </article>
+
+  <article class="work">
+    <div>
+      <div class="wnum">04</div>
+      <h3>Nutrition <em>Tracker</em></h3>
+      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web app</span><span>Status: concept</span></div>
+      <p>A web app concept that estimates calories and macronutrients from food photos, using image-based food identification and portion estimation to generate nutritional estimates and meal summaries.</p>
+      <ul class="wlist">
+        <li>Product call: show the estimate with its uncertainty, because a confident wrong number is worse than an honest range.</li>
+        <li>Presented as a concept. No production claims.</li>
+      </ul>
+    </div>
+    <div class="wart">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Plate divided into measured segments">
+        <g>
+          <circle cx="200" cy="150" r="110" fill="#F1EADB" stroke="#15120F" stroke-width="2.5"/>
+          <path d="M200 150 L200 40 A110 110 0 0 1 295 205 Z" fill="#0E5A57" opacity="0.8" stroke="#15120F" stroke-width="2"/>
+          <path d="M200 150 L295 205 A110 110 0 0 1 105 205 Z" fill="#E3A22C" opacity="0.85" stroke="#15120F" stroke-width="2"/>
+          <path d="M200 150 L105 205 A110 110 0 0 1 200 40 Z" fill="#CDB99B" stroke="#15120F" stroke-width="2"/>
+          <circle cx="200" cy="150" r="10" fill="#E5462A"/>
+          <text x="215" y="95" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#F1EADB">42%</text>
+          <text x="225" y="190" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">33%</text>
+          <text x="130" y="170" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">25%</text>
+        </g>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 - MEASURED PLATE</text>
+      </svg>
+      <div class="acap mono">Fig. 04 - segments, not guesses</div>
+    </div>
+  </article>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <g filter="url(#wob)" fill="none" stroke="#CDB99B" stroke-width="2">
+      <path d="M0 45 Q 120 20, 240 42 T 480 40 T 720 48 T 960 38 T 1200 46 T 1440 42"/>
+      <path d="M0 55 Q 140 32, 280 50 T 560 48 T 840 56 T 1120 46 T 1440 52" stroke-width="1.3"/>
+    </g>
+  </svg>
+</div>
+<!-- 04 / METHOD -->
+<section id="method"><div class="inner">
+  <div class="secnum"><b>04</b> / Method</div>
+  <h2 class="stitle reveal"><span>How I <em>work.</em></span></h2>
+  <div class="steps">
+    <div class="step"><div class="snum">S.01</div><h4>Discover</h4><p>I talk to users and read the data before I write anything down. I look for the problem behind the request.</p><div class="art mono">Artifact: notes + problem statement</div></div>
+    <div class="step"><div class="snum">S.02</div><h4>Define</h4><p>I turn findings into a sharp scope: who it serves, what success looks like, what is out. Ambiguity dies here.</p><div class="art mono">Artifact: PRD, success metrics</div></div>
+    <div class="step"><div class="snum">S.03</div><h4>Design</h4><p>I sketch flows with the team, cut ruthlessly, and keep the smallest version that still solves the problem.</p><div class="art mono">Artifact: flows + prototypes</div></div>
+    <div class="step"><div class="snum">S.04</div><h4>Deliver</h4><p>I run the backlog in priority order, unblock engineers daily, and ship in small, reviewable pieces.</p><div class="art mono">Artifact: shipped releases</div></div>
+    <div class="step"><div class="snum">S.05</div><h4>Measure</h4><p>I check what changed after release against the success metric, then decide: iterate, keep, or kill.</p><div class="art mono">Artifact: readout + decision</div></div>
+  </div>
+</div></section>
+
+<!-- 05 / ARTIFACTS -->
+<section id="artifacts">
+  <div class="secnum"><b>05</b> / PM artifacts</div>
+  <h2 class="stitle reveal"><span>Paper <em>trail.</em></span></h2>
+  <div class="sample-note"><b>Sample artifacts.</b> These are built to show how I work, not real company documents. Replace with real ones as they are approved to share.</div>
+  <div class="tabs" role="tablist">
+    <button class="tabbtn on" data-tab="t-road" role="tab">Roadmap</button>
+    <button class="tabbtn" data-tab="t-prd" role="tab">PRD excerpt</button>
+    <button class="tabbtn" data-tab="t-rice" role="tab">RICE table</button>
+  </div>
+  <div class="tabpane on" id="t-road" role="tabpanel">
+    <div class="mono" style="margin-bottom:16px">Sample product: flood alert feature - drag the thinking, not real data</div>
+    <div class="board">
+      <div class="bcol"><h5>Now</h5>
+        <div class="card"><b>District-level alert thresholds</b><span class="mono">Outcome: faster warnings - Confidence: high</span></div>
+        <div class="card"><b>SMS fallback for low bandwidth</b><span class="mono">Outcome: reach offline users - Confidence: high</span></div>
+      </div>
+      <div class="bcol"><h5>Next</h5>
+        <div class="card"><b>Rainfall forecast overlay</b><span class="mono">Hypothesis: earlier signal - Confidence: medium</span></div>
+        <div class="card"><b>Urdu + Sindhi alert copy</b><span class="mono">Hypothesis: wider comprehension - Confidence: medium</span></div>
+      </div>
+      <div class="bcol"><h5>Later</h5>
+        <div class="card"><b>Community reporting inbox</b><span class="mono">Hypothesis: ground truth - Confidence: low</span></div>
+        <div class="card"><b>Historical event replay</b><span class="mono">Hypothesis: training value - Confidence: low</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="tabpane prd" id="t-prd" role="tabpanel">
+    <div class="mono" style="margin-bottom:10px">PRD excerpt - sample</div>
+    <h4>Task assignment and progress tracking</h4>
+    <h6>Problem</h6><p>Team members could not see who owned a task or what was still outstanding, so coordination gaps slowed delivery.</p>
+    <h6>Goals and non-goals</h6><p>Goal: every task has a visible owner and status. Non-goal: time tracking or performance scoring.</p>
+    <h6>Users</h6><p>Team members coordinating delivery; stakeholders checking progress.</p>
+    <h6>Requirements</h6><ul><li>P0: assign owner, set status, filter by owner.</li><li>P1: overdue highlighting, weekly digest.</li></ul>
+    <h6>Success metrics</h6><p>Fewer "who is doing this" threads; tasks closed per week.</p>
+    <h6>Risks</h6><p>Adoption drops if updating status feels like extra work.</p>
+    <h6>Open questions</h6><p>Do we need per-task comments, or is status enough?</p>
+  </div>
+  <div class="tabpane" id="t-rice" role="tabpanel">
+    <div class="mono" style="margin-bottom:10px">Click a header to sort - sample numbers</div>
+    <table class="rice" id="ricetable">
+      <thead><tr><th data-k="0">Feature</th><th data-k="1">Reach</th><th data-k="2">Impact</th><th data-k="3">Confidence</th><th data-k="4">Effort</th><th data-k="5">RICE</th></tr></thead>
+      <tbody>
+        <tr><td>Task assignment</td><td>40</td><td>3</td><td>80</td><td>2</td><td>48</td></tr>
+        <tr><td>Progress tracking</td><td>40</td><td>2</td><td>90</td><td>3</td><td>24</td></tr>
+        <tr><td>Overdue highlighting</td><td>25</td><td>2</td><td>60</td><td>1</td><td>30</td></tr>
+        <tr><td>Weekly digest</td><td>15</td><td>1</td><td>50</td><td>2</td><td>3.75</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 06 / EXPERIENCE -->
+<section id="experience">
+  <div class="secnum"><b>06</b> / Experience</div>
+  <h2 class="stitle reveal"><span>The <em>ledger.</em></span></h2>
+  <div class="ledger">
+    <div class="lrow">
+      <div class="ldate">Jun 2024 - Aug 2026</div>
+      <div>
+        <h4>Smart Marketing Methods</h4>
+        <div class="role">Product Manager - Germany-based, remote</div>
+        <ul>
+          <li>Coordinated delivery of 8 product features, prioritising the backlog and aligning stakeholder requirements.</li>
+          <li>Shipped task assignment and progress tracking ahead of lower-priority UI work, reducing coordination gaps.</li>
+          <li>Ran product planning in Trello with async written requirements and stakeholder feedback loops.</li>
+          <li>[ADD: outcome]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lrow">
+      <div class="ldate">Feb 2024 - Jun 2024</div>
+      <div>
+        <h4>Asaptickets</h4>
+        <div class="role">Travel Agent - US-based, remote</div>
+        <ul><li>Flight reservations, fare comparisons, itinerary changes, and travel inquiries.</li></ul>
+      </div>
+    </div>
+    <div class="lrow">
+      <div class="ldate">Aug 2023 - Dec 2023</div>
+      <div>
+        <h4>LIBT Admission Centre</h4>
+        <div class="role">Customer Service Representative - UK-based, remote</div>
+        <ul><li>Admissions inquiries, programme requirements, and application guidance for prospective students.</li></ul>
+      </div>
+    </div>
+    <div class="lrow">
+      <div class="ldate">2022 - 2026</div>
+      <div>
+        <h4>The Islamia University of Bahawalpur</h4>
+        <div class="role">BS Computer Science</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 / TOOLKIT -->
+<section id="toolkit">
+  <div class="secnum"><b>07</b> / Toolkit</div>
+  <h2 class="stitle reveal"><span>What I <em>use.</em></span></h2>
+  <table class="tools">
+    <tr>
+      <th>Product</th><th>Build</th><th>Data</th>
+    </tr>
+    <tr>
+      <td><span class="mono">Discovery - delivery</span>Discovery, PRDs, roadmaps, prioritization, experimentation, analytics. Trello for planning and tracking.</td>
+      <td><span class="mono">Full-stack + mobile</span>Full-stack web apps, Android with Kotlin, FastAPI, Next.js, PostgreSQL, Docker, Firebase.</td>
+      <td><span class="mono">Models - dashboards</span>Machine learning model evaluation (scikit-learn, XGBoost), pandas and NumPy analysis, reporting dashboards.</td>
+    </tr>
+  </table>
+</section>
+
+<!-- 08 / ABOUT -->
+<section id="about">
+  <div class="secnum"><b>08</b> / About</div>
+  <h2 class="stitle reveal"><span>The <em>person.</em></span></h2>
+  <div class="agrid">
+    <div class="photocard">
+      <img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar">
+      <div class="pcap mono">Pakistan</div>
+    </div>
+    <div>
+      <p>I am Aadil Ali Mahar, a product manager from Sindh, Pakistan. I spent 2+ years managing products with a remote team in Germany, and I hold a BS in Computer Science from The Islamia University of Bahawalpur.</p>
+      <p>I like work that is concrete: a clear problem, a small team, a shipped result. When I am not writing requirements, I am usually building something with Python or sketching an idea for the next tool.</p>
+      <ul class="aboutlist">
+        <li><span class="mono">Languages</span> Sindhi, Urdu, English, Hindi</li>
+        <li><span class="mono">Currently</span> Open to remote Product Manager roles</li>
+        <li><span class="mono">Based</span> Pakistan, working across time zones</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 09 / CONTACT -->
+<section id="contact">
+  <div class="secnum"><b>09</b> / Contact</div>
+  <h2 class="stitle reveal"><span>Say <em class="hot">hello.</em></span></h2>
+  <p style="margin:18px 0 26px;max-width:56ch">I reply fast. If you are hiring a product manager who can also build, write me.</p>
+  <a class="bigmail" href="mailto:adilmahar72@gmail.com" data-clabel="EMAIL">adilmahar72@gmail.com</a>
+  <div class="crows">
+    <span class="mono">+92 324 0879719</span>
+    <span class="mono">Pakistan</span>
+    <button class="cbtn" id="copybtn" data-clabel="COPY">Copy email</button>
+  </div>
+</section>
+
+<footer>
+  <div class="pattern-band" aria-hidden="true"></div>
+  <div class="foot-inner">
+    <span class="mono">Aadil Ali Mahar - Product Manager - 2026</span>
+    <span class="mono">Set in Fraunces, Schibsted Grotesk, Plex Mono</span>
+    <a class="totop mono" href="#hero">Back to top</a>
+  </div>
+</footer>
+<script src="assets/js/three.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- screenshot mode (?shot=1&sec=<id>) ---------- */
+var shotMode = /[?&]shot=1/.test(location.search);
+var shotSec = (location.search.match(/[?&]sec=([a-z]+)/) || [])[1];
+if (shotMode){
+  document.documentElement.style.scrollBehavior = 'auto';
+  var _ld = document.getElementById('loader');
+  if (_ld) _ld.style.display = 'none';
+  document.querySelectorAll('.reveal > span').forEach(function(el){ el.style.transform='none'; });
+  var _t = shotSec && document.getElementById(shotSec);
+  if (_t) window.scrollTo(0, _t.getBoundingClientRect().top + window.pageYOffset);
+  document.title = 'SHOT-OK ' + window.pageYOffset;
+}
+
+/* ---------- preloader ---------- */
+var loader = document.getElementById('loader');
+function hideLoader(){ loader.classList.add('gone'); }
+setTimeout(hideLoader, 1200);
+loader.addEventListener('click', hideLoader);
+loader.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){hideLoader();} });
+
+/* ---------- custom cursor ---------- */
+var cursor = document.getElementById('cursor');
+var clabel = cursor.querySelector('.clabel');
+if (window.matchMedia('(pointer:fine)').matches){
+  document.addEventListener('mousemove', function(e){
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .tabbtn, th').forEach(function(el){
+    el.addEventListener('mouseenter', function(){
+      cursor.classList.add('big');
+      clabel.textContent = el.getAttribute('data-clabel') || '';
+    });
+    el.addEventListener('mouseleave', function(){ cursor.classList.remove('big'); });
+  });
+}
+
+/* ---------- scroll progress ---------- */
+var pfill = document.querySelector('#progress .fill');
+var pnum = document.querySelector('#progress .pnum');
+var secs = ['hero','intro','work','method','artifacts','experience','toolkit','about','contact'];
+function onScroll(){
+  var h = document.documentElement;
+  var p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  pfill.style.height = (p*100) + '%';
+  var idx = 0;
+  secs.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < window.innerHeight*0.4) idx = i;
+  });
+  pnum.textContent = ('0'+(idx+1)).slice(-2);
+}
+document.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ---------- reveals ---------- */
+if (window.gsap && window.ScrollTrigger && !reduced){
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal > span').forEach(function(el){
+    gsap.to(el, {y:0, duration:0.9, ease:'cubic-bezier(0.2,0.8,0.2,1)',
+      scrollTrigger:{trigger: el.closest('.reveal'), start:'top 88%'}});
+  });
+  /* hero scrub drives the 3D spread (see terrain section below) */
+} else {
+  document.querySelectorAll('.reveal > span').forEach(function(el){ el.style.transform='none'; });
+}
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tabbtn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.remove('on');});
+    document.querySelectorAll('.tabpane').forEach(function(p){p.classList.remove('on');});
+    btn.classList.add('on');
+    document.getElementById(btn.getAttribute('data-tab')).classList.add('on');
+  });
+});
+
+/* ---------- RICE sort ---------- */
+var rtable = document.getElementById('ricetable');
+if (rtable){
+  var dir = 1;
+  rtable.querySelectorAll('th').forEach(function(th){
+    th.addEventListener('click', function(){
+      var k = parseInt(th.getAttribute('data-k'),10);
+      var tb = rtable.querySelector('tbody');
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr'));
+      rows.sort(function(a,b){
+        var va = a.children[k].textContent.trim(), vb = b.children[k].textContent.trim();
+        var na = parseFloat(va), nb = parseFloat(vb);
+        if (!isNaN(na) && !isNaN(nb)) return (na-nb)*dir;
+        return va.localeCompare(vb)*dir;
+      });
+      dir *= -1;
+      rows.forEach(function(r){ tb.appendChild(r); });
+    });
+  });
+}
+
+/* ---------- copy email ---------- */
+var copybtn = document.getElementById('copybtn');
+copybtn.addEventListener('click', function(){
+  var done = function(){ copybtn.textContent = 'Copied'; setTimeout(function(){copybtn.textContent='Copy email';},1600); };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText('adilmahar72@gmail.com').then(done, done);
+  } else { done(); }
+});
+
+/* ---------- 3D hero: The Survey ---------- */
+try {
+  if (!window.THREE) throw new Error('no three');
+  var holder = document.getElementById('terrain');
+  var hero = document.getElementById('hero');
+  var scene = new THREE.Scene();
+  var W = hero.clientWidth || window.innerWidth, H = hero.clientHeight || window.innerHeight;
+  var camera = new THREE.PerspectiveCamera(42, W/H, 0.1, 200);
+  camera.position.set(0, 9, 26);
+  camera.lookAt(0, 0, 0);
+  var renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+  renderer.setSize(W, H);
+  holder.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xfff6e6, 0.85));
+  var sun = new THREE.DirectionalLight(0xffffff, 0.55);
+  sun.position.set(8, 14, 6);
+  scene.add(sun);
+
+  var palette = [0xE9DFC9, 0xCDB99B, 0xEFE7D2, 0xCDB99B, 0xE9DFC9, 0x0E5A57, 0xE9DFC9, 0xCDB99B];
+  var layers = [], baseY = [], N = 8;
+  function blobShape(seed, rBase){
+    var shape = new THREE.Shape();
+    for (var a = 0; a <= Math.PI*2 + 0.01; a += 0.12){
+      var r = rBase * (1 + 0.16*Math.sin(3*a + seed) + 0.10*Math.cos(5*a - seed*1.7) + 0.06*Math.sin(8*a + seed*0.6));
+      var x = Math.cos(a)*r*1.35, y = Math.sin(a)*r*0.8;
+      if (a === 0) shape.moveTo(x, y); else shape.lineTo(x, y);
+    }
+    return shape;
+  }
+  for (var i = 0; i < N; i++){
+    var geo = new THREE.ExtrudeGeometry(blobShape(i*1.37, 9 - i*0.85), {depth:0.35, bevelEnabled:false});
+    geo.rotateX(-Math.PI/2);
+    var mat = new THREE.MeshStandardMaterial({color: palette[i % palette.length], roughness:0.95, metalness:0});
+    var m = new THREE.Mesh(geo, mat);
+    var y0 = -4.4 + i*0.85;
+    m.position.set(Math.sin(i*2.1)*0.7, y0, Math.cos(i*1.3)*0.5);
+    baseY.push(y0);
+    scene.add(m); layers.push(m);
+  }
+  var water = new THREE.Mesh(
+    new THREE.PlaneGeometry(60, 60),
+    new THREE.MeshBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.5})
+  );
+  water.rotation.x = -Math.PI/2; water.position.y = -5.4;
+  scene.add(water);
+
+  var spread = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', function(e){
+    mx = (e.clientX/window.innerWidth - 0.5);
+    my = (e.clientY/window.innerHeight - 0.5);
+  });
+  var callouts = document.querySelectorAll('.callout');
+
+  function setSpread(v){
+    spread = v;
+    for (var i = 0; i < N; i++){
+      layers[i].position.y = baseY[i] + spread * i * 1.35;
+    }
+    water.position.y = -5.4 + spread * 4.2;
+    callouts.forEach(function(c){
+      var idx = parseInt(c.getAttribute('data-co'),10);
+      var on = spread > 0.25 + idx*0.1;
+      c.style.opacity = on ? '1' : '0';
+      c.style.transform = on ? 'translateY(0)' : 'translateY(8px)';
+    });
+  }
+
+  if (window.gsap && window.ScrollTrigger && !reduced){
+    ScrollTrigger.create({
+      trigger:'#hero', start:'top top', end:'bottom top', scrub:true,
+      onUpdate:function(self){ setSpread(self.progress); }
+    });
+  }
+
+  var clock = new THREE.Clock();
+  function tick(){
+    var t = clock.getElapsedTime();
+    if (!reduced){
+      for (var i = 0; i < N; i++){
+        layers[i].position.y += Math.sin(t*0.6 + i*1.3) * 0.0016;
+      }
+      camera.position.x += ((mx*4) - camera.position.x) * 0.04;
+      camera.position.y += ((9 - my*3) - camera.position.y) * 0.04;
+      camera.lookAt(0, 0, 0);
+      water.material.opacity = 0.45 + Math.sin(t*0.8)*0.08;
+    }
+    renderer.render(scene, camera);
+    if (!reduced) requestAnimationFrame(tick);
+  }
+  tick();
+
+  window.addEventListener('resize', function(){
+    var w2 = hero.clientWidth, h2 = hero.clientHeight;
+    camera.aspect = w2/h2; camera.updateProjectionMatrix();
+    renderer.setSize(w2, h2);
+  });
+} catch(err) {
+  var t2 = document.getElementById('terrain');
+  if (t2) t2.style.display = 'none';
+}
+})();
+</script>
+</body>
+</html>
