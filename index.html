@@ -21,7 +21,7 @@ img{max-width:100%;display:block}
 a{color:inherit}
 
 /* paper grain */
-.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.055;
+.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.09;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");}
 
 /* type utilities */
@@ -65,18 +65,17 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 #progress .pnum{position:absolute;left:15px;top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;writing-mode:vertical-rl;opacity:.7}
 
 /* ============ HERO ============ */
-#hero{height:100svh;min-height:720px;max-width:none;padding:0;overflow:hidden;position:relative}
+#hero{height:100svh;min-height:720px;max-width:none;padding:0;overflow:hidden;position:relative;background:var(--paper)}
 #terrain{position:absolute;left:0;right:0;bottom:0;height:46%;z-index:1}
 #terrain canvas{display:block}
-.tgrain{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.14;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");}
 .hero-inner{position:absolute;z-index:3;top:8vh;left:6vw;right:6vw;pointer-events:none}
 .hero-inner a,.hero-inner button{pointer-events:auto}
 .eyebrow{margin-bottom:2vh}
 .giant{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(58px,13.5vw,208px);line-height:.92;letter-spacing:-.025em}
 .giant em{font-style:italic;font-weight:400}
 .giant .vm{color:var(--vermilion);font-style:italic}
-.positioning{font-size:clamp(20px,1.7vw,25px);max-width:420px;margin-top:2.5vh}
+.giant .n1{white-space:nowrap}
+.positioning{font-size:clamp(20px,1.7vw,25px);max-width:34ch;margin-top:2.5vh}
 .hero-links{margin-top:3vh;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 .tlink-primary{display:inline-block;background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none;
   padding:13px 24px 14px;clip-path:polygon(3% 10%,97% 2%,100% 86%,95% 100%,4% 95%,0% 14%);transition:transform .15s}
@@ -88,14 +87,11 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .statusline{margin-top:3vh;margin-left:6%;font-size:12px;position:relative;padding-left:18px}
 .statusline::before{content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;background:var(--vermilion);
   border-radius:46% 54% 52% 48%/52% 46% 54% 48%}
-.archwrap{position:absolute;z-index:3;right:6vw;bottom:30vh;width:min(300px,26vw);pointer-events:auto}
-.archwrap::before{content:"";position:absolute;top:6px;left:-6px;right:12px;bottom:44px;background:var(--vermilion);
-  border-radius:150px 150px 8px 8px;transform:rotate(3deg) scale(.97);z-index:-1}
+.archwrap{position:absolute;z-index:3;right:6vw;bottom:calc(46% - 60px);width:min(300px,26vw);pointer-events:auto}
 .arch{border-radius:150px 150px 8px 8px;overflow:hidden;border:3px solid var(--ink);background:var(--clay);position:relative}
 .arch img{width:100%;height:auto;filter:sepia(.28) saturate(1.08) contrast(1.02)}
 .arch::after{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.15;pointer-events:none}
 .archcap{margin-top:14px;text-align:center}
-.survey{position:absolute;z-index:3;left:58vw;top:43vh;width:210px;pointer-events:none}
 .badge-rot{display:inline-block;width:110px;height:110px;pointer-events:none;vertical-align:middle;flex:none}
 .badge-rot svg{width:100%;height:100%;animation:spin 26s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -112,15 +108,27 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 #intro p{max-width:62ch;margin-bottom:1.2em;font-size:18px}
 #intro p:first-of-type{font-size:21px}
 
+.intro-grid{display:grid;grid-template-columns:1fr 300px;gap:5vw;align-items:start;margin-top:2vh}
+.fact{border-top:2px solid var(--ink);padding:14px 0}
+.fact .count{font-family:'Fraunces',serif;font-size:52px;font-weight:600;line-height:1;display:block;font-variant-numeric:tabular-nums}
+.fact .mono{opacity:.7;display:block;margin-top:6px}
+
 /* ============ WORK ============ */
 .work{border-top:2px solid var(--ink);padding:34px 0;display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start}
 .work:last-of-type{border-bottom:2px solid var(--ink)}
+.work.r75{grid-template-columns:7fr 5fr}
+.work.flip .wtext{order:2}
+.work.feature{display:block}
+.work.feature .wart{max-width:960px;margin-bottom:26px}
+.repolinks{margin-top:12px}
+.repolinks a{text-decoration:none;border-bottom:1px solid var(--ink);font-size:12px}
+.repolinks a:hover{color:var(--vermilion);border-color:var(--vermilion)}
 .wnum{font-family:'Fraunces',serif;font-size:clamp(48px,4.5vw,76px);font-weight:300;line-height:1;color:var(--clay)}
 .work h3{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:-.01em;margin:6px 0 4px}
 .work h3 em{font-style:italic}
 .meta{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 14px}
 .work p{max-width:52ch;margin-bottom:.9em}
-.wlist{list-style:none;margin:12px 0}
+.wlist{list-style:none;margin:12px 0;max-width:52ch}
 .wlist li{padding-left:20px;position:relative;margin-bottom:6px;font-size:16px}
 .wlist li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;background:var(--vermilion);border-radius:50%}
 .wart{border:2px solid var(--ink);background:var(--paper);padding:10px;position:relative}
@@ -130,9 +138,9 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 /* ============ METHOD ============ */
 #method{background:var(--night);color:var(--paper);max-width:none}
 #method .inner{max-width:1500px;margin:0 auto}
-#method .secnum{color:var(--paper);opacity:.8}
+#method .secnum{color:var(--turmeric);opacity:1}
 #method h2.stitle{color:var(--paper)}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:4vh;border-top:2px solid var(--clay)}
+.steps{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:0;margin-top:4vh;border-top:2px solid var(--clay)}
 .step{padding:22px 18px 8px;border-right:1px dashed var(--clay);position:relative}
 .step:last-child{border-right:none}
 .step .snum{font-family:'IBM Plex Mono',monospace;color:var(--turmeric);font-size:12px;letter-spacing:.2em}
@@ -143,10 +151,10 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 /* ============ ARTIFACTS ============ */
 .sample-note{border:2px dashed var(--vermilion);padding:12px 16px;margin:18px 0;max-width:70ch;font-size:15px}
 .tabs{display:flex;gap:0;margin-top:26px;border:2px solid var(--ink);width:max-content;max-width:100%}
-.tabbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:transparent;border:none;border-right:2px solid var(--ink);padding:14px 22px;cursor:pointer;color:var(--ink)}
+.tabbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:#E7DEC6;border:none;border-right:2px solid var(--ink);border-radius:12px 12px 0 0;padding:14px 22px;cursor:pointer;color:var(--ink);position:relative;top:2px}
 .tabbtn:last-child{border-right:none}
 .tabbtn.on{background:var(--ink);color:var(--paper)}
-.tabpane{display:none;border:2px solid var(--ink);border-top:none;padding:30px;max-width:1000px;background:#F6F1E3}
+.tabpane{display:none;border:2px solid var(--ink);border-top:none;padding:30px;max-width:none;background:#F6F1E3;box-shadow:7px 7px 0 var(--clay),14px 14px 0 rgba(205,185,155,.45)}
 .tabpane.on{display:block}
 .board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .bcol h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;border-bottom:2px solid var(--ink);padding-bottom:8px}
@@ -160,6 +168,11 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 table.rice{width:100%;border-collapse:collapse;font-size:15px}
 table.rice th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-align:left;border-bottom:2px solid var(--ink);padding:10px 8px;cursor:pointer;user-select:none}
 table.rice td{border-bottom:1px solid var(--clay);padding:10px 8px}
+table.rice .num{text-align:right;font-variant-numeric:tabular-nums}
+table.rice td.ricev,table.rice th.ricev{font-weight:700}
+.rice-scroll{overflow-x:auto}
+table.rice{min-width:380px}
+.rice-note{margin-top:16px;font-size:14.5px;max-width:72ch}
 table.rice th:hover{color:var(--vermilion)}
 
 /* ============ EXPERIENCE ============ */
@@ -181,9 +194,6 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 /* ============ ABOUT ============ */
 #about .agrid{display:grid;grid-template-columns:340px 1fr;gap:5vw;align-items:start;margin-top:26px}
 .photocard{background:#FBF8EF;border:1px solid var(--clay);padding:14px 14px 46px;transform:rotate(-2deg);box-shadow:6px 8px 0 rgba(21,18,15,.12);position:relative;max-width:340px}
-.photocard::before,.photocard::after{content:"";position:absolute;top:-14px;width:74px;height:26px;background:rgba(227,162,44,.75);border:1px solid rgba(21,18,15,.15)}
-.photocard::before{left:18px;transform:rotate(-8deg)}
-.photocard::after{right:18px;transform:rotate(7deg)}
 .photocard img{width:100%;filter:sepia(.28) saturate(1.08) contrast(1.02)}
 .photocard .pimg{position:relative}
 .photocard .pimg::after{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.15;pointer-events:none}
@@ -198,8 +208,11 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 #contact .bigmail{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,7vw,110px);letter-spacing:-.02em;line-height:1.05;word-break:break-all;text-decoration:none;border-bottom:4px solid var(--vermilion)}
 #contact .bigmail:hover{background:var(--vermilion);color:var(--paper)}
 .crows{margin-top:4vh;display:flex;gap:34px;flex-wrap:wrap;align-items:center}
-.cbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:14px 24px;cursor:pointer;box-shadow:4px 4px 0 var(--vermilion)}
-.cbtn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--vermilion)}
+.cbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:14px 24px;cursor:pointer;clip-path:polygon(3% 10%,97% 2%,100% 86%,95% 100%,4% 95%,0% 14%);transition:transform .15s}
+.cbtn:active{transform:translate(1px,2px)}
+
+.clink{text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.clink:hover{color:var(--vermilion);border-color:var(--vermilion)}
 
 /* ============ FOOTER ============ */
 footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
@@ -212,21 +225,25 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 
 @media (max-width:900px){
   .work{grid-template-columns:1fr}
+  .work.r75{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .step{border-right:none;border-bottom:1px dashed var(--clay)}
   .lrow{grid-template-columns:1fr;gap:6px}
   #about .agrid{grid-template-columns:1fr}
+  .intro-grid{grid-template-columns:1fr}
+  .work.flip .wtext{order:0}
+  .tabpane{padding:22px 14px}
   .board{grid-template-columns:1fr}
   table.tools th,table.tools td{display:block;width:100%}
   #hero{height:auto;min-height:100svh;display:flex;flex-direction:column}
   #terrain{position:relative;height:210px;flex:none}
-  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 0 auto;width:64%;transform:rotate(-2deg)}
+  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 24px auto;width:64%;transform:rotate(-2deg)}
   .archwrap::before{bottom:40px}
   .archcap{display:none}
   .hero-inner{display:contents}
   .eyebrow{order:1;margin:3vh 6vw 0}
   .archwrap{order:2}
-  .giant{order:3;margin:-5vh 6vw 0;position:relative;z-index:4}
+  .giant{order:3;margin:0 6vw 0;position:relative;z-index:4}
   .positioning{order:4;margin-left:6vw;margin-right:6vw}
   .hero-links{order:5;margin-left:6vw;margin-right:6vw}
   .statusline{order:6;margin-left:6vw;margin-right:6vw}
@@ -240,9 +257,15 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   .survey{display:none}
   .callout{display:none}
 }
+@media (max-width:768px){
+  #progress{display:none}
+}
 @media (prefers-reduced-motion:reduce){
   .reveal>span{transform:none}
   .badge-rot svg{animation:none}
+}
+@media (min-width:901px){
+  .hero-links .emaillink{margin-top:24px}
 }
 </style>
 </head>
@@ -262,18 +285,11 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 
 <!-- 01 / HERO -->
 <section id="hero">
-  <div id="terrain" aria-hidden="true"><div class="tgrain" aria-hidden="true"></div></div>
+  <div id="terrain" aria-hidden="true"></div>
   <div class="archwrap">
     <div class="arch"><img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar"></div>
     <div class="archcap mono">Portrait &#183; Pakistan</div>
   </div>
-  <svg class="survey" viewBox="0 0 250 90" aria-hidden="true">
-    <g filter="url(#wob)" fill="none" stroke="#15120F" stroke-width="2">
-      <path d="M8 72 Q 70 54, 130 60 T 222 32"/>
-      <path d="M214 22 L228 40 M224 22 L216 40"/>
-    </g>
-    <circle cx="8" cy="72" r="4.5" fill="#E5462A"/>
-  </svg>
   <div class="callouts" aria-hidden="true">
     <span class="callout" data-co="0" style="left:8%;top:70%">DISCOVER</span>
     <span class="callout" data-co="1" style="left:24%;top:63%">DEFINE</span>
@@ -283,7 +299,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   </div>
   <div class="hero-inner">
     <div class="eyebrow mono reveal"><span>01 / Hello &#183; Aadil Ali Mahar</span></div>
-    <h1 class="giant reveal"><span>AADIL <em>ALI</em> <span class="vm">MAHAR</span></span></h1>
+    <h1 class="giant reveal"><span><span class="n1">AADIL <em>ALI</em></span> <span class="vm">MAHAR</span></span></h1>
     <p class="positioning">Product manager who ships machine learning and full-stack products end to end. I read the data, talk to engineers, and build.</p>
     <div class="hero-links">
       <a class="tlink-primary" href="#work" data-clabel="VIEW">See the work<svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true"><path d="M2 12 Q 9 9, 14 9 M14 9 l-4.5 -3.5 M14 9 l-4.5 4" stroke="#F1EADB" stroke-width="2" stroke-linecap="round"/></svg></a>
@@ -291,8 +307,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <span class="badge-rot" aria-hidden="true">
         <svg viewBox="0 0 120 120">
           <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
-          <text style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;fill:#15120F">
-            <textPath href="#circ" textLength="288" lengthAdjust="spacingAndGlyphs">PRODUCT MANAGER &#183; REMOTE &#183; OPEN TO ROLES </textPath>
+          <circle cx="60" cy="60" r="58" fill="#F1EADB"/>
+          <text style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;fill:#15120F">
+            <textPath href="#circ" textLength="289" lengthAdjust="spacingAndGlyphs">PRODUCT MANAGER &#183; REMOTE &#183; OPEN TO ROLES &#183; </textPath>
           </text>
           <circle cx="60" cy="60" r="7" fill="#E5462A"/>
         </svg>
@@ -318,52 +335,80 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 <section id="intro">
   <div class="secnum"><b>02</b> / Intro</div>
   <h2 class="stitle reveal"><span>I manage products <em class="hot">and</em> build them.</span></h2>
-  <p>I am a product manager with 2+ years at Smart Marketing Methods, a Germany-based company, working remotely. I run discovery, write the requirements, prioritize the backlog, and stay with the work through delivery. I also build: full-stack web apps, Android apps, and machine learning models.</p>
-  <p>That combination is my edge. I can <span class="uw">read the data myself</span>, talk to engineers in their language, and make decisions with users in the room. Below is the work, the method, and the artifacts.</p>
+  <div class="intro-grid">
+    <div>
+      <p>I am a product manager with 2+ years at Smart Marketing Methods, a Germany-based company, working remotely. I run discovery, write the requirements, prioritize the backlog, and stay with the work through delivery. I also build: full-stack web apps, Android apps, and machine learning models.</p>
+      <p>I <span class="uw">read the data myself</span>, talk to engineers in their language, and make decisions with users in the room. Below is the work, the method, and the artifacts.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="count">8</span><span class="mono">Features shipped &#183; Smart Marketing Methods</span></div>
+      <div class="fact"><span class="count">4</span><span class="mono">Builds in this portfolio</span></div>
+      <div class="fact"><span class="count">12</span><span class="mono">Districts in the FloodSafe training data</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- 03 / WORK -->
 <section id="work">
   <div class="secnum"><b>03</b> / Selected work</div>
-  <h2 class="stitle reveal"><span>Four builds, <em>four</em> lessons.</span></h2>
+  <h2 class="stitle reveal"><span>Four builds.</span></h2>
 
-  <article class="work">
-    <div>
+  <article class="work feature">
+    <div class="wart">
+      <svg viewBox="0 0 640 400" role="img" aria-label="Authority command centre screen, drawn as an illustration">
+        <text x="24" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTRE (ILLUSTRATION)</text>
+        <rect x="14" y="38" width="612" height="350" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
+        <rect x="14" y="38" width="612" height="42" fill="#15120F"/>
+        <text x="28" y="64" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;fill:#F1EADB">FLOODSAFE &#183; AUTHORITY COMMAND CENTRE</text>
+        <rect x="28" y="92" width="584" height="32" fill="#E5462A"/>
+        <text x="42" y="113" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;fill:#F1EADB">FLOOD WATCH &#183; DADU DISTRICT &#183; RIVER RISING</text>
+        <rect x="28" y="136" width="168" height="238" fill="#F1EADB" stroke="#CDB99B" stroke-width="2"/>
+        <text x="42" y="160" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;fill:#15120F">DISTRICTS</text>
+        <g style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">
+          <circle cx="46" cy="182" r="5" fill="#E5462A"/><text x="58" y="186">DADU &#183; HIGH</text>
+          <circle cx="46" cy="210" r="5" fill="#E3A22C"/><text x="58" y="214">SUKKUR &#183; MED</text>
+          <circle cx="46" cy="238" r="5" fill="#E3A22C"/><text x="58" y="242">LARKANA &#183; MED</text>
+          <circle cx="46" cy="266" r="5" fill="#0E5A57"/><text x="58" y="270">SHIKARPUR &#183; LOW</text>
+          <circle cx="46" cy="294" r="5" fill="#0E5A57"/><text x="58" y="298">JACOBABAD &#183; LOW</text>
+        </g>
+        <rect x="208" y="136" width="272" height="238" fill="#EADFC4" stroke="#15120F" stroke-width="2"/>
+        <g fill="none" stroke="#0E5A57" stroke-width="2">
+          <path d="M218 340 Q 260 300, 310 320 T 420 300 T 470 315"/>
+          <path d="M218 310 Q 270 270, 320 290 T 430 270 T 470 285"/>
+          <path d="M218 280 Q 280 240, 330 260 T 440 240 T 470 255"/>
+          <path d="M218 250 Q 290 210, 340 230 T 450 215 T 470 225"/>
+        </g>
+        <rect x="208" y="330" width="272" height="44" fill="#0E5A57" opacity="0.25"/>
+        <circle cx="344" cy="262" r="6" fill="#E5462A"/>
+        <path d="M344 268 L 300 330" stroke="#E5462A" stroke-width="1.5"/>
+        <text x="252" y="356" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;fill:#15120F">PREDICTED ZONE</text>
+        <rect x="492" y="136" width="120" height="238" fill="#F1EADB" stroke="#CDB99B" stroke-width="2"/>
+        <text x="506" y="180" style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;fill:#15120F">0.875</text>
+        <text x="506" y="200" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;fill:#15120F">F1 &#183; n = 36</text>
+        <text x="506" y="238" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#15120F">0.963</text>
+        <text x="506" y="256" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;fill:#15120F">ROC-AUC</text>
+        <text x="506" y="300" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">12 DISTRICTS</text>
+        <text x="506" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">52 EVENTS</text>
+      </svg>
+      <div class="acap mono">Authority command centre, drawn as an illustration</div>
+    </div>
+    <div class="wtext">
       <div class="wnum">01</div>
       <h3>FloodSafe <em>Pakistan</em></h3>
       <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web + Mobile</span><span>Status: working prototype</span></div>
       <p>A flood-risk prediction and early-warning platform. Three machine learning models classify flood occurrence; the best reaches <b>F1 0.875</b> and <b>ROC-AUC 0.963</b>. A Flutter app and a Next.js web app sit on a FastAPI backend with PostgreSQL/PostGIS for spatial data, plus an authority command centre.</p>
       <ul class="wlist">
-        <li>Trained on historical flood-event data: 12 districts, 52 events, evaluated on 36 held-out district-year observations.</li>
+        <li>Evaluated on 36 held-out district-year observations (a small test set, stated up front): best model F1 0.875, ROC-AUC 0.963.</li>
+        <li>Trained on historical data covering 12 districts and 52 flood events.</li>
         <li>Product call: one platform for the public and for authorities, not two tools.</li>
-        <li>[ADD: dataset and evaluation context]</li>
       </ul>
-      <span class="sticker">F1 0.875</span>
-    </div>
-    <div class="wart">
-      <svg viewBox="0 0 400 300" role="img" aria-label="Contour map with rising water band">
-        <defs><filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter></defs>
-        <g filter="url(#wob2)" fill="none" stroke="#0E5A57" stroke-width="2">
-          <path d="M20 250 Q 80 200, 140 220 T 260 200 T 380 220"/>
-          <path d="M20 220 Q 90 170, 150 190 T 270 170 T 380 190"/>
-          <path d="M20 190 Q 100 140, 160 160 T 280 140 T 380 160"/>
-          <path d="M20 160 Q 110 110, 170 130 T 290 110 T 380 130"/>
-          <path d="M20 130 Q 120 80, 180 100 T 300 85 T 380 100"/>
-        </g>
-        <rect x="20" y="205" width="360" height="70" fill="#0E5A57" opacity="0.35">
-          <animate attributeName="y" values="235;205;235" dur="5s" repeatCount="indefinite"/>
-          <animate attributeName="height" values="40;70;40" dur="5s" repeatCount="indefinite"/>
-        </rect>
-        <text x="30" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; RISK TERRAIN</text>
-        <circle cx="200" cy="150" r="6" fill="#E5462A"/>
-        <text x="214" y="154" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#E5462A">PREDICTED ZONE</text>
-      </svg>
-      <div class="acap mono">Fig. 01 &#183; contour map, water rising</div>
+      <span class="sticker">F1 0.875 &#183; n = 36</span>
+      <div class="repolinks mono"><a href="https://github.com/Adilmhr1262/flood-risk-dss">Repo: flood-risk-dss</a></div>
     </div>
   </article>
 
-  <article class="work">
-    <div>
+  <article class="work r75 flip">
+    <div class="wtext">
       <div class="wnum">02</div>
       <h3>PALMS</h3>
       <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web platform</span><span>Status: independent build</span></div>
@@ -371,30 +416,37 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <ul class="wlist">
         <li>Product call: explainability first, so a professor trusts the recommendation enough to act on it.</li>
         <li>Stack: FastAPI, PostgreSQL, Next.js, Docker.</li>
-        <li>[ADD: metric]</li>
       </ul>
+      <div class="repolinks mono"><a href="https://github.com/Adilmhr1262/palms">Repo: palms</a></div>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 300" role="img" aria-label="Stair of mastery gates with a path">
+      <svg viewBox="0 0 400 340" role="img" aria-label="Mastery path with an explainable recommendation">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
         <g>
-          <rect x="40" y="220" width="60" height="40" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
-          <rect x="110" y="180" width="60" height="80" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
-          <rect x="180" y="140" width="60" height="120" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
-          <rect x="250" y="100" width="60" height="160" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
-          <rect x="320" y="60" width="40" height="200" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
-          <path d="M70 220 L140 180 L210 140 L280 100 L340 60" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
+          <rect x="20" y="60" width="76" height="100" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
+          <text x="34" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
+          <rect x="112" y="60" width="76" height="100" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
+          <text x="126" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#F1EADB">DONE</text>
+          <rect x="204" y="60" width="76" height="100" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
+          <text x="216" y="110" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">YOU ARE</text>
+          <text x="222" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">HERE</text>
+          <rect x="296" y="60" width="76" height="100" fill="#F1EADB" stroke="#15120F" stroke-width="2" stroke-dasharray="6 5"/>
+          <text x="306" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOCKED</text>
+          <path d="M58 60 L150 60 L242 60 L334 60" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
             <animate attributeName="stroke-dashoffset" from="56" to="0" dur="2.4s" repeatCount="indefinite"/>
           </path>
-          <circle cx="70" cy="220" r="6" fill="#E5462A"><animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/></circle>
         </g>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY GATES</text>
+        <rect x="20" y="196" width="360" height="112" fill="#FBF8EF" stroke="#15120F" stroke-width="2"/>
+        <text x="36" y="226" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;fill:#0E5A57">RECOMMENDATION</text>
+        <text x="36" y="252" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#15120F">Next up: Fractions quiz</text>
+        <text x="36" y="280" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Why: you scored 62% on the Fractions drill.</text>
       </svg>
-      <div class="acap mono">Fig. 02 &#183; the path through the gates</div>
+      <div class="acap mono">Gates light as skills are mastered; every recommendation says why</div>
     </div>
   </article>
 
-  <article class="work">
-    <div>
+  <article class="work r75">
+    <div class="wtext">
       <div class="wnum">03</div>
       <h3>Health <em>and</em> Care</h3>
       <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Android</span><span>Status: final-year project &#183; Grade A</span></div>
@@ -406,25 +458,29 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <span class="sticker">GRADE A</span>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 300" role="img" aria-label="Route line with pulsing dispatch dot on street grid">
-        <g stroke="#CDB99B" stroke-width="1.5">
-          <path d="M0 60 H400 M0 120 H400 M0 180 H400 M0 240 H400"/>
-          <path d="M60 0 V300 M140 0 V300 M220 0 V300 M300 0 V300 M370 0 V300"/>
-        </g>
-        <path id="route" d="M60 240 L60 180 L140 180 L140 120 L220 120 L220 60 L300 60" fill="none" stroke="#15120F" stroke-width="3"/>
-        <circle r="8" fill="#E5462A">
-          <animateMotion dur="4s" repeatCount="indefinite" rotate="0"><mpath href="#route"/></animateMotion>
+      <svg viewBox="0 0 400 340" role="img" aria-label="SOS screen on a phone, drawn as an illustration">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; SOS SCREEN (ILLUSTRATION)</text>
+        <rect x="125" y="44" width="150" height="280" rx="20" fill="#15120F"/>
+        <rect x="135" y="54" width="130" height="260" rx="12" fill="#F1EADB"/>
+        <text x="200" y="82" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;fill:#15120F">EMERGENCY</text>
+        <circle cx="200" cy="160" r="46" fill="#E5462A"/>
+        <circle cx="200" cy="160" r="46" fill="none" stroke="#E5462A" stroke-width="2" opacity=".5">
+          <animate attributeName="r" values="46;58;46" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".5;0;.5" dur="2s" repeatCount="indefinite"/>
         </circle>
-        <rect x="286" y="46" width="28" height="28" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
-        <text x="292" y="65" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#F1EADB">H</text>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; DISPATCH ROUTE</text>
+        <text x="200" y="170" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:2px;fill:#F1EADB">SOS</text>
+        <text x="200" y="238" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1px;fill:#15120F">AMBULANCE DISPATCHED</text>
+        <text x="200" y="266" text-anchor="middle" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#0E5A57">4 min away</text>
+        <path d="M160 292 L200 292 L200 284 L240 284" fill="none" stroke="#15120F" stroke-width="2"/>
+        <circle cx="160" cy="292" r="4" fill="#15120F"/>
+        <circle cx="240" cy="284" r="4" fill="#E5462A"/>
       </svg>
-      <div class="acap mono">Fig. 03 &#183; the dot is the ambulance</div>
+      <div class="acap mono">One-tap SOS, drawn as an illustration</div>
     </div>
   </article>
 
-  <article class="work">
-    <div>
+  <article class="work flip">
+    <div class="wtext">
       <div class="wnum">04</div>
       <h3>Nutrition <em>Tracker</em></h3>
       <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Web app</span><span>Status: concept</span></div>
@@ -435,20 +491,24 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       </ul>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 300" role="img" aria-label="Plate divided into measured segments">
-        <g>
-          <circle cx="200" cy="150" r="110" fill="#F1EADB" stroke="#15120F" stroke-width="2.5"/>
-          <path d="M200 150 L200 40 A110 110 0 0 1 295 205 Z" fill="#0E5A57" opacity="0.8" stroke="#15120F" stroke-width="2"/>
-          <path d="M200 150 L295 205 A110 110 0 0 1 105 205 Z" fill="#E3A22C" opacity="0.85" stroke="#15120F" stroke-width="2"/>
-          <path d="M200 150 L105 205 A110 110 0 0 1 200 40 Z" fill="#CDB99B" stroke="#15120F" stroke-width="2"/>
-          <circle cx="200" cy="150" r="10" fill="#E5462A"/>
-          <text x="215" y="95" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#F1EADB">42%</text>
-          <text x="225" y="190" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">33%</text>
-          <text x="130" y="170" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">25%</text>
-        </g>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; MEASURED PLATE</text>
+      <svg viewBox="0 0 400 340" role="img" aria-label="Food photo with portion estimates and an honest calorie range">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; HONEST RANGE</text>
+        <rect x="125" y="44" width="150" height="200" rx="14" fill="#15120F"/>
+        <rect x="133" y="52" width="134" height="184" rx="8" fill="#EADFC4"/>
+        <ellipse cx="200" cy="140" rx="52" ry="40" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+        <ellipse cx="182" cy="132" rx="18" ry="12" fill="#E3A22C"/>
+        <ellipse cx="216" cy="146" rx="20" ry="12" fill="#CDB99B"/>
+        <rect x="140" y="66" width="66" height="52" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="140" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">RICE &#183; 1.5 CUP</text>
+        <rect x="212" y="120" width="52" height="52" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="212" y="184" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">DAAL &#183; 0.75 CUP</text>
+        <rect x="40" y="268" width="320" height="12" fill="#CDB99B"/>
+        <rect x="110" y="268" width="150" height="12" fill="#0E5A57"/>
+        <text x="40" y="262" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">420</text>
+        <text x="330" y="262" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">510 KCAL</text>
+        <text x="40" y="302" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Shown as a range, not a single number.</text>
       </svg>
-      <div class="acap mono">Fig. 04 &#183; segments, not guesses</div>
+      <div class="acap mono">Portion estimates with the uncertainty shown</div>
     </div>
   </article>
 </section>
@@ -456,29 +516,33 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 <div class="divider" aria-hidden="true">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
     <g filter="url(#wob)" fill="none" stroke="#CDB99B" stroke-width="2">
-      <path d="M0 45 Q 120 20, 240 42 T 480 40 T 720 48 T 960 38 T 1200 46 T 1440 42"/>
-      <path d="M0 55 Q 140 32, 280 50 T 560 48 T 840 56 T 1120 46 T 1440 52" stroke-width="1.3"/>
+      <path d="M0 30 Q 160 58, 320 34 T 640 42 T 960 30 T 1280 44 T 1440 34"/>
+      <path d="M0 46 Q 200 70, 400 46 T 800 54 T 1200 44 T 1440 52" stroke-width="1.3"/>
+      <path d="M0 60 Q 180 78, 360 60 T 720 66 T 1080 58 T 1440 64" stroke-width="1.1"/>
+      <circle cx="720" cy="47" r="5" fill="#E5462A" stroke="none"/>
+      <circle cx="300" cy="55" r="3.5" fill="#0E5A57" stroke="none"/>
+      <circle cx="1140" cy="40" r="3.5" fill="#0E5A57" stroke="none"/>
     </g>
   </svg>
 </div>
 <!-- 04 / METHOD -->
 <section id="method"><div class="inner">
   <div class="secnum"><b>04</b> / Method</div>
-  <h2 class="stitle reveal"><span>How I <em>work.</em></span></h2>
+  <h2 class="stitle reveal"><span>How I work.</span></h2>
   <div class="steps">
-    <div class="step"><div class="snum">S.01</div><h4>Discover</h4><p>I talk to users and read the data before I write anything down. I look for the problem behind the request.</p><div class="art mono">Artifact: notes + problem statement</div></div>
-    <div class="step"><div class="snum">S.02</div><h4>Define</h4><p>I turn findings into a sharp scope: who it serves, what success looks like, what is out. Ambiguity dies here.</p><div class="art mono">Artifact: PRD, success metrics</div></div>
-    <div class="step"><div class="snum">S.03</div><h4>Design</h4><p>I sketch flows with the team, cut ruthlessly, and keep the smallest version that still solves the problem.</p><div class="art mono">Artifact: flows + prototypes</div></div>
-    <div class="step"><div class="snum">S.04</div><h4>Deliver</h4><p>I run the backlog in priority order, unblock engineers daily, and ship in small, reviewable pieces.</p><div class="art mono">Artifact: shipped releases</div></div>
-    <div class="step"><div class="snum">S.05</div><h4>Measure</h4><p>I check what changed after release against the success metric, then decide: iterate, keep, or kill.</p><div class="art mono">Artifact: readout + decision</div></div>
+    <div class="step"><div class="snum">S.01</div><h4>Discover</h4><p>I start with the people and the paper trail: stakeholder conversations, written requirements, and the coordination gaps the team already complains about. At Smart Marketing Methods the recurring gap was task ownership.</p><div class="art mono">Artifact: written requirements + problem statement</div></div>
+    <div class="step"><div class="snum">S.02</div><h4>Define</h4><p>I scope in writing: who it serves, what done looks like, what is out. Async written updates kept the Germany team aligned without adding meetings.</p><div class="art mono">Artifact: PRD, success metrics</div></div>
+    <div class="step"><div class="snum">S.03</div><h4>Design</h4><p>I sketch the smallest version with the team and cut the rest. We shipped task assignment and progress tracking before lower-priority interface work.</p><div class="art mono">Artifact: flows + prototypes</div></div>
+    <div class="step"><div class="snum">S.04</div><h4>Deliver</h4><p>I run the Trello board in priority order, unblock engineers daily, and ship in small, reviewable pieces. Eight features shipped this way.</p><div class="art mono">Artifact: shipped releases</div></div>
+    <div class="step"><div class="snum">S.05</div><h4>Measure</h4><p>I check what changed against the success metric, then decide: iterate, keep, or kill.</p><div class="art mono">Artifact: readout + decision</div></div>
   </div>
 </div></section>
 
 <!-- 05 / ARTIFACTS -->
 <section id="artifacts">
   <div class="secnum"><b>05</b> / PM artifacts</div>
-  <h2 class="stitle reveal"><span>Paper <em>trail.</em></span></h2>
-  <div class="sample-note"><b>Sample artifacts.</b> These are built to show how I work, not real company documents. Replace with real ones as they are approved to share.</div>
+  <h2 class="stitle reveal"><span>Paper trail.</span></h2>
+  <div class="sample-note"><b>Sample.</b> Illustrative samples. I wrote these to show how I work. They are not documents from an employer.</div>
   <div class="tabs" role="tablist">
     <button class="tabbtn on" data-tab="t-road" role="tab">Roadmap</button>
     <button class="tabbtn" data-tab="t-prd" role="tab">PRD excerpt</button>
@@ -502,34 +566,37 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     </div>
   </div>
   <div class="tabpane prd" id="t-prd" role="tabpanel">
-    <div class="mono" style="margin-bottom:10px">PRD excerpt &#183; sample</div>
-    <h4>Task assignment and progress tracking</h4>
-    <h6>Problem</h6><p>Team members could not see who owned a task or what was still outstanding, so coordination gaps slowed delivery.</p>
-    <h6>Goals and non-goals</h6><p>Goal: every task has a visible owner and status. Non-goal: time tracking or performance scoring.</p>
-    <h6>Users</h6><p>Team members coordinating delivery; stakeholders checking progress.</p>
-    <h6>Requirements</h6><ul><li>P0: assign owner, set status, filter by owner.</li><li>P1: overdue highlighting, weekly digest.</li></ul>
-    <h6>Success metrics</h6><p>Fewer "who is doing this" threads; tasks closed per week.</p>
-    <h6>Risks</h6><p>Adoption drops if updating status feels like extra work.</p>
-    <h6>Open questions</h6><p>Do we need per-task comments, or is status enough?</p>
+    <div class="mono" style="margin-bottom:10px">PRD excerpt &#183; sample &#183; same product as the roadmap</div>
+    <h4>District-level flood alerts</h4>
+    <h6>Problem</h6><p>Flood warnings arrive late or not at all in the districts that need them most. Authorities and the public watch different channels, so nobody shares one picture of what is coming.</p>
+    <h6>Goals and non-goals</h6><p>Goal: a district gets a warning early enough to act on it. Non-goal: predicting exact water levels street by street.</p>
+    <h6>Users</h6><p>District authorities coordinating response; residents in flood-prone districts, including low-bandwidth and non-English readers.</p>
+    <h6>Requirements</h6><ul><li>P0: per-district alert thresholds, alert dispatch to app and SMS.</li><li>P1: SMS fallback for low bandwidth, Urdu and Sindhi alert copy, rainfall forecast overlay.</li></ul>
+    <h6>Success metrics</h6><p>Warning lead time per district; share of alerts acknowledged.</p>
+    <h6>Risks</h6><p>False alarms erode trust faster than late ones.</p>
+    <h6>Open questions</h6><p>Who owns the threshold numbers: the model or the district office?</p>
   </div>
   <div class="tabpane" id="t-rice" role="tabpanel">
-    <div class="mono" style="margin-bottom:10px">Click a header to sort &#183; sample numbers</div>
+    <div class="mono" style="margin-bottom:10px">RICE = Reach &#215; Impact &#215; Confidence &#247; Effort &#183; click a header to sort &#183; sample numbers</div>
+    <div class="rice-scroll">
     <table class="rice" id="ricetable">
-      <thead><tr><th data-k="0">Feature</th><th data-k="1">Reach</th><th data-k="2">Impact</th><th data-k="3">Confidence</th><th data-k="4">Effort</th><th data-k="5">RICE</th></tr></thead>
+      <thead><tr><th data-k="0">Feature</th><th data-k="1" class="num">Reach</th><th data-k="2" class="num">Impact</th><th data-k="3" class="num">Confidence</th><th data-k="4" class="num">Effort</th><th data-k="5" class="num ricev">RICE</th></tr></thead>
       <tbody>
-        <tr><td>Task assignment</td><td>40</td><td>3</td><td>80</td><td>2</td><td>48</td></tr>
-        <tr><td>Progress tracking</td><td>40</td><td>2</td><td>90</td><td>3</td><td>24</td></tr>
-        <tr><td>Overdue highlighting</td><td>25</td><td>2</td><td>60</td><td>1</td><td>30</td></tr>
-        <tr><td>Weekly digest</td><td>15</td><td>1</td><td>50</td><td>2</td><td>3.75</td></tr>
+        <tr><td>SMS fallback for low bandwidth</td><td class="num">40</td><td class="num">3</td><td class="num">80%</td><td class="num">2</td><td class="num ricev">48</td></tr>
+        <tr><td>District alert thresholds</td><td class="num">25</td><td class="num">2</td><td class="num">60%</td><td class="num">1</td><td class="num ricev">30</td></tr>
+        <tr><td>Urdu + Sindhi alert copy</td><td class="num">40</td><td class="num">2</td><td class="num">90%</td><td class="num">3</td><td class="num ricev">24</td></tr>
+        <tr><td>Historical event replay</td><td class="num">15</td><td class="num">1</td><td class="num">50%</td><td class="num">2</td><td class="num ricev">3.75</td></tr>
       </tbody>
     </table>
+    </div>
+    <p class="rice-note">SMS fallback (48) outranks district thresholds (30) while being P1: it depends on thresholds existing.</p>
   </div>
 </section>
 
 <!-- 06 / EXPERIENCE -->
 <section id="experience">
   <div class="secnum"><b>06</b> / Experience</div>
-  <h2 class="stitle reveal"><span>The <em>ledger.</em></span></h2>
+  <h2 class="stitle reveal"><span>Experience</span></h2>
   <div class="ledger">
     <div class="lrow">
       <div class="ldate">Jun 2024 – Aug 2026</div>
@@ -540,7 +607,6 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           <li>Coordinated delivery of 8 product features, prioritising the backlog and aligning stakeholder requirements.</li>
           <li>Shipped task assignment and progress tracking ahead of lower-priority UI work, reducing coordination gaps.</li>
           <li>Ran product planning in Trello with async written requirements and stakeholder feedback loops.</li>
-          <li>[ADD: outcome]</li>
         </ul>
       </div>
     </div>
@@ -564,7 +630,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <div class="ldate">2022 – 2026</div>
       <div>
         <h4>The Islamia University of Bahawalpur</h4>
-        <div class="role">BS Computer Science</div>
+        <div class="role">Education &#183; BS Computer Science</div>
       </div>
     </div>
   </div>
@@ -573,23 +639,25 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 <!-- 07 / TOOLKIT -->
 <section id="toolkit">
   <div class="secnum"><b>07</b> / Toolkit</div>
-  <h2 class="stitle reveal"><span>What I <em>use.</em></span></h2>
+  <h2 class="stitle reveal"><span>Toolkit</span></h2>
   <table class="tools">
-    <tr>
-      <th>Product</th><th>Build</th><th>Data</th>
-    </tr>
-    <tr>
-      <td><span class="mono">Discovery &#183; delivery</span>Discovery, PRDs, roadmaps, prioritization, experimentation, analytics. Trello for planning and tracking.</td>
-      <td><span class="mono">Full-stack + mobile</span>Full-stack web apps, Android with Kotlin, FastAPI, Next.js, PostgreSQL, Docker, Firebase.</td>
-      <td><span class="mono">Models &#183; dashboards</span>Machine learning model evaluation (scikit-learn, XGBoost), pandas and NumPy analysis, reporting dashboards.</td>
-    </tr>
+    <tr><th>Tool</th><th>What for</th><th>Used in</th></tr>
+    <tr><td>Trello</td><td>Planning, backlog, delivery tracking</td><td>Smart Marketing Methods</td></tr>
+    <tr><td>FastAPI</td><td>Backend APIs</td><td>FloodSafe &#183; PALMS</td></tr>
+    <tr><td>Next.js</td><td>Web apps</td><td>FloodSafe &#183; PALMS</td></tr>
+    <tr><td>PostgreSQL + PostGIS</td><td>Data and spatial queries</td><td>FloodSafe &#183; PALMS</td></tr>
+    <tr><td>Flutter</td><td>Mobile app</td><td>FloodSafe</td></tr>
+    <tr><td>Kotlin</td><td>Android app</td><td>Health and Care</td></tr>
+    <tr><td>Firebase</td><td>Auth, database, maps</td><td>Health and Care</td></tr>
+    <tr><td>Docker</td><td>Shipping services</td><td>PALMS</td></tr>
+    <tr><td>Python: pandas, NumPy, scikit-learn, XGBoost</td><td>Data work and model evaluation</td><td>FloodSafe</td></tr>
   </table>
 </section>
 
 <!-- 08 / ABOUT -->
 <section id="about">
   <div class="secnum"><b>08</b> / About</div>
-  <h2 class="stitle reveal"><span>The <em>person.</em></span></h2>
+  <h2 class="stitle reveal"><span>About</span></h2>
   <div class="agrid">
     <div class="photocard">
       <div class="pimg"><img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar"></div>
@@ -597,7 +665,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     </div>
     <div>
       <p>I am Aadil Ali Mahar, a product manager from Sindh, Pakistan. I spent 2+ years managing products with a remote team in Germany, and I hold a BS in Computer Science from The Islamia University of Bahawalpur.</p>
-      <p>I like work that is concrete: a clear problem, a small team, a shipped result. When I am not writing requirements, I am usually building something with Python or sketching an idea for the next tool.</p>
+      <p>I work remotely across time zones. When I am not writing requirements, I am usually building something with Python or sketching the next tool.</p>
       <ul class="aboutlist">
         <li><span class="mono">Languages</span> Sindhi, Urdu, English, Hindi</li>
         <li><span class="mono">Currently</span> Open to remote Product Manager roles</li>
@@ -614,7 +682,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <p style="margin:18px 0 26px;max-width:56ch">I reply fast. If you are hiring a product manager who can also build, write me.</p>
   <a class="bigmail" href="mailto:adilmahar72@gmail.com" data-clabel="EMAIL">adilmahar72@gmail.com</a>
   <div class="crows">
-    <span class="mono">+92 324 0879719</span>
+    <a class="clink mono" href="https://github.com/Adilmhr1262">GitHub</a>
+    <a class="clink mono" href="resume.pdf">Resume (PDF)</a>
+    <a class="clink mono" href="https://wa.me/923240879719">WhatsApp</a>
     <span class="mono">Pakistan</span>
     <button class="cbtn" id="copybtn" data-clabel="COPY">Copy email</button>
   </div>
@@ -667,7 +737,13 @@ if (shotMode){
 /* ---------- preloader ---------- */
 var loader = document.getElementById('loader');
 function hideLoader(){ loader.classList.add('gone'); }
-if (!/[?&]pre=1/.test(location.search)) setTimeout(hideLoader, 1200);
+var seenBefore = false;
+try { seenBefore = !!sessionStorage.getItem('pm_seen'); } catch(e) {}
+if (!shotMode && !reduced && !seenBefore && !/[?&]pre=1/.test(location.search)){
+  setTimeout(function(){ hideLoader(); try{ sessionStorage.setItem('pm_seen','1'); }catch(e){} }, 1000);
+} else {
+  loader.style.display = 'none';
+}
 loader.addEventListener('click', hideLoader);
 loader.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){hideLoader();} });
 
@@ -730,21 +806,24 @@ document.querySelectorAll('.tabbtn').forEach(function(btn){
 
 /* ---------- RICE sort ---------- */
 var rtable = document.getElementById('ricetable');
+function sortRice(k, dir){
+  var tb = rtable.querySelector('tbody');
+  var rows = Array.prototype.slice.call(tb.querySelectorAll('tr'));
+  rows.sort(function(a,b){
+    var va = a.children[k].textContent.trim().replace('%',''), vb = b.children[k].textContent.trim().replace('%','');
+    var na = parseFloat(va), nb = parseFloat(vb);
+    if (!isNaN(na) && !isNaN(nb)) return (na-nb)*dir;
+    return va.localeCompare(vb)*dir;
+  });
+  rows.forEach(function(r){ tb.appendChild(r); });
+}
 if (rtable){
-  var dir = 1;
+  sortRice(5, -1);
+  var rdir = -1;
   rtable.querySelectorAll('th').forEach(function(th){
     th.addEventListener('click', function(){
-      var k = parseInt(th.getAttribute('data-k'),10);
-      var tb = rtable.querySelector('tbody');
-      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr'));
-      rows.sort(function(a,b){
-        var va = a.children[k].textContent.trim(), vb = b.children[k].textContent.trim();
-        var na = parseFloat(va), nb = parseFloat(vb);
-        if (!isNaN(na) && !isNaN(nb)) return (na-nb)*dir;
-        return va.localeCompare(vb)*dir;
-      });
-      dir *= -1;
-      rows.forEach(function(r){ tb.appendChild(r); });
+      rdir *= -1;
+      sortRice(parseInt(th.getAttribute('data-k'),10), rdir);
     });
   });
 }
@@ -774,20 +853,22 @@ try {
   renderer.setSize(W, H);
   holder.appendChild(renderer.domElement);
 
-  scene.add(new THREE.AmbientLight(0xfff6e6, 0.85));
-  var sun = new THREE.DirectionalLight(0xffffff, 0.55);
+  scene.add(new THREE.AmbientLight(0xfff6e6, 0.7));
+  var sun = new THREE.DirectionalLight(0xfff2dd, 0.45);
   sun.position.set(8, 14, 6);
   scene.add(sun);
 
-  var palette = [0xF6F0E2, 0xCDB99B, 0xF1EADB, 0xE3A22C, 0xCDB99B, 0x0E5A57, 0xF6F0E2, 0xCDB99B];
+  var palette = [0xDCC49B, 0xCDB99B, 0xE3A22C, 0xCDB99B, 0xDCC49B, 0x0E5A57, 0xCDB99B, 0xDCC49B];
   var layers = [], baseY = [], N = 8;
-  function blobR(a, seed, rBase){
-    return rBase * (1 + 0.16*Math.sin(3*a + seed) + 0.10*Math.cos(5*a - seed*1.7) + 0.06*Math.sin(8*a + seed*0.6));
+  function blobR(a, seed, rBase, jagged){
+    var r = rBase * (1 + 0.16*Math.sin(3*a + seed) + 0.10*Math.cos(5*a - seed*1.7) + 0.06*Math.sin(8*a + seed*0.6));
+    if (jagged) r *= 1 + 0.09*Math.sin(13*a + seed*2.3) + 0.05*Math.cos(21*a - seed);
+    return r;
   }
-  function blobShape(seed, rBase){
+  function blobShape(seed, rBase, jagged){
     var shape = new THREE.Shape();
     for (var a = 0; a <= Math.PI*2 + 0.01; a += 0.12){
-      var r = blobR(a, seed, rBase);
+      var r = blobR(a, seed, rBase, jagged);
       var x = Math.cos(a)*r*1.35, y = Math.sin(a)*r*0.8;
       if (a === 0) shape.moveTo(x, y); else shape.lineTo(x, y);
     }
@@ -795,7 +876,7 @@ try {
   }
   var gaps = [0, 0.8, 1.72, 2.42, 3.38, 4.02, 4.96, 5.66];
   for (var i = 0; i < N; i++){
-    var geo = new THREE.ExtrudeGeometry(blobShape(i*1.37, 9 - i*0.85), {depth:0.35, bevelEnabled:false});
+    var geo = new THREE.ExtrudeGeometry(blobShape(i*1.37, 9 - i*0.85, i === N-1), {depth:0.35, bevelEnabled:false});
     geo.rotateX(-Math.PI/2);
     var mat = new THREE.MeshStandardMaterial({color: palette[i % palette.length], roughness:0.95, metalness:0});
     var m = new THREE.Mesh(geo, mat);
@@ -821,7 +902,7 @@ try {
   });
   var water = new THREE.Mesh(
     new THREE.PlaneGeometry(60, 60),
-    new THREE.MeshBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.42})
+    new THREE.MeshBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.25})
   );
   water.rotation.x = -Math.PI/2; water.position.y = -5.4;
   scene.add(water);
@@ -868,7 +949,7 @@ try {
       camera.position.x += ((mx*4) - camera.position.x) * 0.04;
       camera.position.y += ((9 - my*3) - camera.position.y) * 0.04;
       camera.lookAt(0, 0, 0);
-      water.material.opacity = 0.38 + Math.sin(t*0.8)*0.06;
+      water.material.opacity = 0.22 + Math.sin(t*0.8)*0.05;
     }
     renderer.render(scene, camera);
     if (!reduced) requestAnimationFrame(tick);
