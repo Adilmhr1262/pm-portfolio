@@ -35,7 +35,7 @@ a{color:inherit}
 .display{font-family:'Fraunces',serif}
 .secnum{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.75;margin-bottom:14px}
 .secnum b{color:var(--vermilion);font-weight:500}
-section{padding:clamp(72px,8vh,96px) 6vw;position:relative;max-width:1500px;margin:0 auto}
+section{padding:clamp(72px,8vh,96px) 6%;position:relative;max-width:1500px;margin:0 auto}
 h2.stitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,5vw,72px);line-height:1.02;letter-spacing:-.015em;margin-bottom:18px}
 h2.stitle em{font-style:italic}
 h2.stitle .hot{color:var(--vermilion);font-style:italic}
@@ -75,7 +75,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 #hero{height:100svh;min-height:720px;max-width:none;padding:0;overflow:hidden;position:relative;background:var(--paper)}
 #terrain{position:absolute;left:0;right:0;bottom:0;height:35%;z-index:1}
 #terrain canvas{display:block}
-.hero-inner{position:absolute;z-index:3;top:6vh;left:6vw;right:6vw;pointer-events:none}
+.hero-inner{position:absolute;z-index:3;top:6vh;left:6%;right:6%;pointer-events:none}
 .hero-inner a,.hero-inner button{pointer-events:auto}
 .eyebrow{margin-bottom:2vh}
 .giant{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(58px,12.5vw,190px);line-height:.92;letter-spacing:-.025em}
@@ -94,7 +94,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .statusline{margin-top:1.5vh;margin-left:0;font-size:12px;position:relative;padding-left:18px}
 .statusline::before{content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;background:var(--vermilion);
   border-radius:46% 54% 52% 48%/52% 46% 54% 48%}
-.archwrap{position:absolute;z-index:3;right:6vw;bottom:calc(22.7% - 60px);width:min(300px,26vw);pointer-events:auto}
+.archwrap{position:absolute;z-index:3;right:6%;bottom:calc(22.7% - 60px);width:min(300px,26vw);pointer-events:auto}
 .arch{border-radius:150px 150px 8px 8px;overflow:hidden;border:3px solid var(--ink);background:var(--clay);position:relative}
 .arch img{width:100%;height:auto;filter:sepia(.28) saturate(1.08) contrast(1.02)}
 .arch::after{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.15;pointer-events:none}
@@ -105,7 +105,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 @keyframes spin{to{transform:rotate(360deg)}}
 .callouts{position:absolute;inset:0;z-index:2;pointer-events:none}
 .callout{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--paper);background:var(--ink);padding:5px 10px;opacity:0;transform:translateY(8px)}
-.scrollcue{position:absolute;z-index:3;left:6vw;bottom:3vh}
+.scrollcue{position:absolute;z-index:3;left:6%;bottom:3vh}
 .sticker{display:inline-block;background:var(--turmeric);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;padding:6px 12px;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--ink);margin:6px 8px 6px 0}
 
 /* contour divider */
@@ -144,7 +144,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .wlist li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;background:var(--vermilion);border-radius:50%}
 .wart{border:2px solid var(--ink);background:var(--paper);padding:10px;position:relative}
 .wart svg{width:100%;height:auto;display:block}
-.wart .acap{margin-top:8px}
+.wart .acap{margin-top:8px;font-size:12px}
 
 /* ============ METHOD ============ */
 #method{background:var(--night);color:var(--paper);max-width:none}
@@ -245,7 +245,7 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 /* ============ FOOTER ============ */
 footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 .pattern-band{height:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='34'%3E%3Cg fill='none' stroke='%23CDB99B' stroke-width='1.4'%3E%3Cpath d='M24 4 L40 17 L24 30 L8 17 Z'/%3E%3Cpath d='M24 12 L32 17 L24 22 L16 17 Z'/%3E%3Ccircle cx='0' cy='0' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='48' cy='0' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='0' cy='34' r='1.6' fill='%23CDB99B'/%3E%3Ccircle cx='48' cy='34' r='1.6' fill='%23CDB99B'/%3E%3C/g%3E%3C/svg%3E");background-repeat:repeat-x;opacity:.9}
-.foot-inner{padding:34px 6vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;max-width:1500px;margin:0 auto}
+.foot-inner{padding:34px 6%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;max-width:1500px;margin:0 auto}
 .totop{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--vermilion)}
 
 .wart svg.fig01-simple{display:none}
@@ -283,24 +283,24 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   table.tools th,table.tools td{display:block;width:100%}
   #hero{height:auto;min-height:100svh;display:flex;flex-direction:column}
   #terrain{position:relative;height:210px;flex:none}
-  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 24px auto;width:64%}
+  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6% 24px auto;width:64%}
   .archwrap::before{bottom:40px}
   .archcap{display:none}
   .hero-inner{display:contents}
-  .eyebrow{order:1;margin:3vh 6vw 0}
+  .eyebrow{order:1;margin:3vh 6% 0}
   .archwrap{order:2}
-  .giant{order:3;margin:0 6vw 0;position:relative;z-index:4}
-  .positioning{order:4;margin-left:6vw;margin-right:6vw}
-  .hero-links{order:5;margin-left:6vw;margin-right:6vw}
-  .statusline{order:6;margin-left:6vw;margin-right:6vw}
+  .giant{order:3;margin:0 6% 0;position:relative;z-index:4}
+  .positioning{order:4;margin-left:6%;margin-right:6%}
+  .hero-links{order:5;margin-left:6%;margin-right:6%}
+  .statusline{order:6;margin-left:6%;margin-right:6%}
   #terrain{order:7}
   .scrollcue{order:8}
   .giant{line-height:.92;word-spacing:.04em;font-variation-settings:'opsz' 144}
   .badge-rot{display:inline-block;width:84px;height:84px}
   .hero-links{gap:18px}
-  .statusline{margin-left:6vw}
-  .scrollcue{position:static;margin:14px 6vw 5vh}
-  section{padding:64px 6vw}
+  .statusline{margin-left:6%}
+  .scrollcue{position:static;margin:14px 6% 5vh}
+  section{padding:64px 6%}
   .survey{display:none}
   .callout{display:none}
   .badge-rot{display:none}
@@ -542,7 +542,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="32" y="280" style="font-family:'Fraunces',serif;font-size:23px;font-weight:600;fill:#15120F">Next up: Fractions quiz</text>
         <text x="32" y="310" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">Why: you scored 62% on the drill.</text>
       </svg>
-      <div class="acap mono">Mastery path. Drawn as an illustration.</div>
+      <div class="acap mono">Gates unlock as skills are mastered; every recommendation says why. Drawn as an illustration.</div>
     </div>
   </article>
 
@@ -610,10 +610,10 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <ellipse cx="200" cy="140" rx="52" ry="40" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
         <ellipse cx="182" cy="132" rx="18" ry="12" fill="#E3A22C"/>
         <ellipse cx="224" cy="146" rx="20" ry="12" fill="#CDB99B"/>
-        <rect x="160" y="116" width="44" height="32" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
-        <text x="164" y="108" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">RICE</text>
+        <rect x="157" y="116" width="44" height="32" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="164" y="104" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">RICE</text>
         <rect x="208" y="130" width="42" height="36" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
-        <text x="212" y="178" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">DAAL</text>
+        <text x="212" y="181" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">DAAL</text>
         <rect x="40" y="268" width="320" height="12" fill="#CDB99B"/>
         <rect x="110" y="268" width="150" height="12" fill="#0E5A57"/>
         <text x="40" y="262" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOW</text>
@@ -628,10 +628,10 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <ellipse cx="180" cy="150" rx="70" ry="52" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
         <ellipse cx="158" cy="140" rx="24" ry="16" fill="#E3A22C"/>
         <ellipse cx="218" cy="158" rx="24" ry="16" fill="#CDB99B"/>
-        <rect x="128" y="118" width="60" height="44" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
-        <text x="132" y="110" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">RICE</text>
+        <rect x="125" y="118" width="60" height="44" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="132" y="106" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">RICE</text>
         <rect x="190" y="136" width="60" height="44" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
-        <text x="194" y="194" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">DAAL</text>
+        <text x="194" y="197" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A;paint-order:stroke;stroke:#EADFC4;stroke-width:4px">DAAL</text>
         <rect x="40" y="268" width="280" height="14" fill="#CDB99B"/>
         <rect x="110" y="268" width="140" height="14" fill="#0E5A57"/>
         <text x="40" y="260" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">LOW</text>
