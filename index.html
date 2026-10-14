@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aadil Ali Mahar - Product Manager</title>
+<title>Aadil Ali Mahar &#183; Product Manager</title>
 <meta name="description" content="Portfolio of Aadil Ali Mahar, Product Manager. 2+ years at Smart Marketing Methods (Germany, remote). I build machine learning and full-stack products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@ a{color:inherit}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");}
 
 /* type utilities */
-.mono{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;font-size:11px}
+.mono{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:11px;line-height:1.6}
 .display{font-family:'Fraunces',serif}
 .secnum{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.75;margin-bottom:14px}
 .secnum b{color:var(--vermilion);font-weight:500}
@@ -60,31 +60,44 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 
 /* scroll progress */
 #progress{position:fixed;left:0;top:0;bottom:0;width:26px;z-index:1500;pointer-events:none}
-#progress .rail{position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--clay)}
-#progress .fill{position:absolute;left:12px;top:0;width:2px;background:var(--ink);height:0}
-#progress .pnum{position:absolute;left:4px;top:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;writing-mode:vertical-rl;opacity:.7}
+#progress .rail{position:absolute;left:24px;top:0;bottom:0;width:2px;background:var(--clay)}
+#progress .fill{position:absolute;left:24px;top:0;width:2px;background:var(--ink);height:0}
+#progress .pnum{position:absolute;left:15px;top:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;writing-mode:vertical-rl;opacity:.7}
 
 /* ============ HERO ============ */
-#hero{min-height:100vh;max-width:none;padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-#terrain{position:absolute;inset:0;z-index:0}
+#hero{height:100svh;min-height:720px;max-width:none;padding:0;overflow:hidden;position:relative}
+#terrain{position:absolute;left:0;right:0;bottom:0;height:46%;z-index:1}
 #terrain canvas{display:block}
-.hero-inner{position:relative;z-index:2;padding:12vh 6vw 4vh;pointer-events:none}
-.hero-inner a{pointer-events:auto}
+.tgrain{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.14;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero-inner{position:absolute;z-index:3;top:8vh;left:6vw;right:6vw;pointer-events:none}
+.hero-inner a,.hero-inner button{pointer-events:auto}
 .eyebrow{margin-bottom:2vh}
 .giant{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(58px,13.5vw,208px);line-height:.92;letter-spacing:-.025em}
 .giant em{font-style:italic;font-weight:400}
 .giant .vm{color:var(--vermilion);font-style:italic}
-.positioning{font-size:clamp(17px,1.6vw,22px);max-width:34ch;margin-top:2.5vh}
+.positioning{font-size:clamp(20px,1.7vw,25px);max-width:420px;margin-top:2.5vh}
 .hero-links{margin-top:3vh;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-.tlink{font-weight:600;text-decoration:none;border-bottom:2px solid var(--vermilion);padding-bottom:2px}
-.tlink:hover{background:var(--vermilion);color:var(--paper)}
-.statusline{margin-top:3vh}
-.archwrap{position:absolute;z-index:3;right:6vw;top:16vh;width:min(300px,34vw);pointer-events:auto}
-.arch{border-radius:150px 150px 8px 8px;overflow:hidden;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--vermilion);background:var(--clay)}
-.arch img{width:100%;height:auto;filter:sepia(.22) saturate(1.05) contrast(1.02)}
+.tlink-primary{display:inline-block;background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none;
+  padding:13px 24px 14px;clip-path:polygon(3% 10%,97% 2%,100% 86%,95% 100%,4% 95%,0% 14%);transition:transform .15s}
+.tlink-primary:hover{transform:translate(1px,2px)}
+.tlink-primary svg{display:inline-block;vertical-align:-3px;margin-left:9px}
+.emaillink{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.emaillink:hover{color:var(--vermilion);border-color:var(--vermilion)}
+.statusline{margin-top:3vh;margin-left:6%;font-size:12px;position:relative;padding-left:18px}
+.statusline::before{content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;background:var(--vermilion);
+  border-radius:46% 54% 52% 48%/52% 46% 54% 48%}
+.archwrap{position:absolute;z-index:3;right:6vw;bottom:30vh;width:min(300px,26vw);pointer-events:auto}
+.archwrap::before{content:"";position:absolute;top:6px;left:-6px;right:12px;bottom:44px;background:var(--vermilion);
+  border-radius:150px 150px 8px 8px;transform:rotate(3deg) scale(.97);z-index:-1}
+.arch{border-radius:150px 150px 8px 8px;overflow:hidden;border:3px solid var(--ink);background:var(--clay);position:relative}
+.arch img{width:100%;height:auto;filter:sepia(.28) saturate(1.08) contrast(1.02)}
+.arch::after{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.15;pointer-events:none}
 .archcap{margin-top:14px;text-align:center}
-.badge-rot{position:absolute;z-index:3;left:5vw;bottom:26vh;width:118px;height:118px;pointer-events:none}
-.badge-rot svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.survey{position:absolute;z-index:3;left:58vw;top:43vh;width:210px;pointer-events:none}
+.badge-rot{display:inline-block;width:110px;height:110px;pointer-events:none;vertical-align:middle;flex:none}
+.badge-rot svg{width:100%;height:100%;animation:spin 26s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .callouts{position:absolute;inset:0;z-index:2;pointer-events:none}
 .callout{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--paper);background:var(--ink);padding:5px 10px;opacity:0;transform:translateY(8px)}
@@ -171,7 +184,9 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 .photocard::before,.photocard::after{content:"";position:absolute;top:-14px;width:74px;height:26px;background:rgba(227,162,44,.75);border:1px solid rgba(21,18,15,.15)}
 .photocard::before{left:18px;transform:rotate(-8deg)}
 .photocard::after{right:18px;transform:rotate(7deg)}
-.photocard img{width:100%}
+.photocard img{width:100%;filter:sepia(.28) saturate(1.08) contrast(1.02)}
+.photocard .pimg{position:relative}
+.photocard .pimg::after{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.15;pointer-events:none}
 .photocard .pcap{margin-top:12px;text-align:center}
 #about p{max-width:60ch;margin-bottom:1em}
 .aboutlist{list-style:none;margin-top:14px}
@@ -203,9 +218,26 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   #about .agrid{grid-template-columns:1fr}
   .board{grid-template-columns:1fr}
   table.tools th,table.tools td{display:block;width:100%}
-  .archwrap{position:relative;right:auto;top:auto;margin:4vh 6vw 0;width:min(260px,70vw)}
-  .badge-rot{display:none}
-  .hero-inner{padding-top:6vh}
+  #hero{height:auto;min-height:100svh;display:flex;flex-direction:column}
+  #terrain{position:relative;height:210px;flex:none}
+  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 0 auto;width:64%;transform:rotate(-2deg)}
+  .archwrap::before{bottom:40px}
+  .archcap{display:none}
+  .hero-inner{display:contents}
+  .eyebrow{order:1;margin:3vh 6vw 0}
+  .archwrap{order:2}
+  .giant{order:3;margin:-5vh 6vw 0;position:relative;z-index:4}
+  .positioning{order:4;margin-left:6vw;margin-right:6vw}
+  .hero-links{order:5;margin-left:6vw;margin-right:6vw}
+  .statusline{order:6;margin-left:6vw;margin-right:6vw}
+  #terrain{order:7}
+  .scrollcue{order:8}
+  .giant{line-height:.92;word-spacing:.04em;font-variation-settings:'opsz' 144}
+  .badge-rot{display:inline-block;width:84px;height:84px}
+  .hero-links{gap:18px}
+  .statusline{margin-left:6vw}
+  .scrollcue{position:static;margin:14px 6vw 5vh}
+  .survey{display:none}
   .callout{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -225,43 +257,50 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <path class="draw" d="M36 20 L50 36 L36 52 L22 36 Z" stroke="#E5462A" stroke-width="2.5"/>
     <circle class="draw" cx="36" cy="36" r="3.5" fill="#E5462A"/>
   </svg>
-  <div class="mono">Aadil Ali Mahar - Portfolio</div>
+  <div class="mono">Aadil Ali Mahar &#183; Portfolio</div>
 </div>
 
 <!-- 01 / HERO -->
 <section id="hero">
-  <div id="terrain" aria-hidden="true"></div>
+  <div id="terrain" aria-hidden="true"><div class="tgrain" aria-hidden="true"></div></div>
   <div class="archwrap">
     <div class="arch"><img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar"></div>
-    <div class="archcap mono">Portrait - Pakistan</div>
+    <div class="archcap mono">Portrait &#183; Pakistan</div>
   </div>
-  <div class="badge-rot" aria-hidden="true">
-    <svg viewBox="0 0 120 120">
-      <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
-      <text style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:2.5px;fill:#15120F">
-        <textPath href="#circ">PRODUCT MANAGER - REMOTE - OPEN TO ROLES - </textPath>
-      </text>
-      <circle cx="60" cy="60" r="7" fill="#E5462A"/>
-    </svg>
-  </div>
+  <svg class="survey" viewBox="0 0 250 90" aria-hidden="true">
+    <g filter="url(#wob)" fill="none" stroke="#15120F" stroke-width="2">
+      <path d="M8 72 Q 70 54, 130 60 T 222 32"/>
+      <path d="M214 22 L228 40 M224 22 L216 40"/>
+    </g>
+    <circle cx="8" cy="72" r="4.5" fill="#E5462A"/>
+  </svg>
   <div class="callouts" aria-hidden="true">
-    <span class="callout" data-co="0" style="left:8%;top:38%">DISCOVER</span>
-    <span class="callout" data-co="1" style="left:20%;top:30%">DEFINE</span>
-    <span class="callout" data-co="2" style="left:34%;top:24%">DESIGN</span>
-    <span class="callout" data-co="3" style="left:48%;top:19%">DELIVER</span>
-    <span class="callout" data-co="4" style="left:62%;top:15%">MEASURE</span>
+    <span class="callout" data-co="0" style="left:8%;top:70%">DISCOVER</span>
+    <span class="callout" data-co="1" style="left:24%;top:63%">DEFINE</span>
+    <span class="callout" data-co="2" style="left:40%;top:68%">DESIGN</span>
+    <span class="callout" data-co="3" style="left:56%;top:61%">DELIVER</span>
+    <span class="callout" data-co="4" style="left:72%;top:66%">MEASURE</span>
   </div>
   <div class="hero-inner">
-    <div class="eyebrow mono reveal"><span>01 / Hello - Aadil Ali Mahar</span></div>
+    <div class="eyebrow mono reveal"><span>01 / Hello &#183; Aadil Ali Mahar</span></div>
     <h1 class="giant reveal"><span>AADIL <em>ALI</em> <span class="vm">MAHAR</span></span></h1>
     <p class="positioning">Product manager who ships machine learning and full-stack products end to end. I read the data, talk to engineers, and build.</p>
     <div class="hero-links">
-      <a class="tlink" href="#work" data-clabel="VIEW">See the work</a>
-      <a class="tlink" href="mailto:adilmahar72@gmail.com" data-clabel="EMAIL">Email me</a>
+      <a class="tlink-primary" href="#work" data-clabel="VIEW">See the work<svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true"><path d="M2 12 Q 9 9, 14 9 M14 9 l-4.5 -3.5 M14 9 l-4.5 4" stroke="#F1EADB" stroke-width="2" stroke-linecap="round"/></svg></a>
+      <a class="emaillink" href="mailto:adilmahar72@gmail.com" data-clabel="EMAIL">@ Email me</a>
+      <span class="badge-rot" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+          <text style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;fill:#15120F">
+            <textPath href="#circ" textLength="288" lengthAdjust="spacingAndGlyphs">PRODUCT MANAGER &#183; REMOTE &#183; OPEN TO ROLES </textPath>
+          </text>
+          <circle cx="60" cy="60" r="7" fill="#E5462A"/>
+        </svg>
+      </span>
     </div>
     <div class="statusline mono">Remote. Open to Product Manager roles.</div>
   </div>
-  <div class="scrollcue mono">Scroll - the survey begins</div>
+  <div class="scrollcue mono">Scroll &#183; the survey begins</div>
 </section>
 
 <div class="divider" aria-hidden="true">
@@ -315,11 +354,11 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           <animate attributeName="y" values="235;205;235" dur="5s" repeatCount="indefinite"/>
           <animate attributeName="height" values="40;70;40" dur="5s" repeatCount="indefinite"/>
         </rect>
-        <text x="30" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 - RISK TERRAIN</text>
+        <text x="30" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; RISK TERRAIN</text>
         <circle cx="200" cy="150" r="6" fill="#E5462A"/>
         <text x="214" y="154" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#E5462A">PREDICTED ZONE</text>
       </svg>
-      <div class="acap mono">Fig. 01 - contour map, water rising</div>
+      <div class="acap mono">Fig. 01 &#183; contour map, water rising</div>
     </div>
   </article>
 
@@ -348,9 +387,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           </path>
           <circle cx="70" cy="220" r="6" fill="#E5462A"><animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/></circle>
         </g>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 - MASTERY GATES</text>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY GATES</text>
       </svg>
-      <div class="acap mono">Fig. 02 - the path through the gates</div>
+      <div class="acap mono">Fig. 02 &#183; the path through the gates</div>
     </div>
   </article>
 
@@ -358,7 +397,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div>
       <div class="wnum">03</div>
       <h3>Health <em>and</em> Care</h3>
-      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Android</span><span>Status: final-year project - Grade A</span></div>
+      <div class="meta mono"><span>2025</span><span>Role: builder</span><span>Android</span><span>Status: final-year project &#183; Grade A</span></div>
       <p>An Android ambulance application: booking, one-tap SOS, live tracking, driver communication, booking history, and admin management. Built with Kotlin, Firebase Authentication, Firestore, and Google Maps.</p>
       <ul class="wlist">
         <li>Product call: one-tap SOS before anything else, because in an emergency nobody fills a form.</li>
@@ -378,9 +417,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         </circle>
         <rect x="286" y="46" width="28" height="28" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
         <text x="292" y="65" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#F1EADB">H</text>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 - DISPATCH ROUTE</text>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; DISPATCH ROUTE</text>
       </svg>
-      <div class="acap mono">Fig. 03 - the dot is the ambulance</div>
+      <div class="acap mono">Fig. 03 &#183; the dot is the ambulance</div>
     </div>
   </article>
 
@@ -407,9 +446,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           <text x="225" y="190" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">33%</text>
           <text x="130" y="170" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">25%</text>
         </g>
-        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 - MEASURED PLATE</text>
+        <text x="40" y="285" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; MEASURED PLATE</text>
       </svg>
-      <div class="acap mono">Fig. 04 - segments, not guesses</div>
+      <div class="acap mono">Fig. 04 &#183; segments, not guesses</div>
     </div>
   </article>
 </section>
@@ -446,24 +485,24 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <button class="tabbtn" data-tab="t-rice" role="tab">RICE table</button>
   </div>
   <div class="tabpane on" id="t-road" role="tabpanel">
-    <div class="mono" style="margin-bottom:16px">Sample product: flood alert feature - drag the thinking, not real data</div>
+    <div class="mono" style="margin-bottom:16px">Sample product: flood alert feature &#183; drag the thinking, not real data</div>
     <div class="board">
       <div class="bcol"><h5>Now</h5>
-        <div class="card"><b>District-level alert thresholds</b><span class="mono">Outcome: faster warnings - Confidence: high</span></div>
-        <div class="card"><b>SMS fallback for low bandwidth</b><span class="mono">Outcome: reach offline users - Confidence: high</span></div>
+        <div class="card"><b>District-level alert thresholds</b><span class="mono">Outcome: faster warnings &#183; Confidence: high</span></div>
+        <div class="card"><b>SMS fallback for low bandwidth</b><span class="mono">Outcome: reach offline users &#183; Confidence: high</span></div>
       </div>
       <div class="bcol"><h5>Next</h5>
-        <div class="card"><b>Rainfall forecast overlay</b><span class="mono">Hypothesis: earlier signal - Confidence: medium</span></div>
-        <div class="card"><b>Urdu + Sindhi alert copy</b><span class="mono">Hypothesis: wider comprehension - Confidence: medium</span></div>
+        <div class="card"><b>Rainfall forecast overlay</b><span class="mono">Hypothesis: earlier signal &#183; Confidence: medium</span></div>
+        <div class="card"><b>Urdu + Sindhi alert copy</b><span class="mono">Hypothesis: wider comprehension &#183; Confidence: medium</span></div>
       </div>
       <div class="bcol"><h5>Later</h5>
-        <div class="card"><b>Community reporting inbox</b><span class="mono">Hypothesis: ground truth - Confidence: low</span></div>
-        <div class="card"><b>Historical event replay</b><span class="mono">Hypothesis: training value - Confidence: low</span></div>
+        <div class="card"><b>Community reporting inbox</b><span class="mono">Hypothesis: ground truth &#183; Confidence: low</span></div>
+        <div class="card"><b>Historical event replay</b><span class="mono">Hypothesis: training value &#183; Confidence: low</span></div>
       </div>
     </div>
   </div>
   <div class="tabpane prd" id="t-prd" role="tabpanel">
-    <div class="mono" style="margin-bottom:10px">PRD excerpt - sample</div>
+    <div class="mono" style="margin-bottom:10px">PRD excerpt &#183; sample</div>
     <h4>Task assignment and progress tracking</h4>
     <h6>Problem</h6><p>Team members could not see who owned a task or what was still outstanding, so coordination gaps slowed delivery.</p>
     <h6>Goals and non-goals</h6><p>Goal: every task has a visible owner and status. Non-goal: time tracking or performance scoring.</p>
@@ -474,7 +513,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <h6>Open questions</h6><p>Do we need per-task comments, or is status enough?</p>
   </div>
   <div class="tabpane" id="t-rice" role="tabpanel">
-    <div class="mono" style="margin-bottom:10px">Click a header to sort - sample numbers</div>
+    <div class="mono" style="margin-bottom:10px">Click a header to sort &#183; sample numbers</div>
     <table class="rice" id="ricetable">
       <thead><tr><th data-k="0">Feature</th><th data-k="1">Reach</th><th data-k="2">Impact</th><th data-k="3">Confidence</th><th data-k="4">Effort</th><th data-k="5">RICE</th></tr></thead>
       <tbody>
@@ -493,10 +532,10 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <h2 class="stitle reveal"><span>The <em>ledger.</em></span></h2>
   <div class="ledger">
     <div class="lrow">
-      <div class="ldate">Jun 2024 - Aug 2026</div>
+      <div class="ldate">Jun 2024 – Aug 2026</div>
       <div>
         <h4>Smart Marketing Methods</h4>
-        <div class="role">Product Manager - Germany-based, remote</div>
+        <div class="role">Product Manager &#183; Germany-based, remote</div>
         <ul>
           <li>Coordinated delivery of 8 product features, prioritising the backlog and aligning stakeholder requirements.</li>
           <li>Shipped task assignment and progress tracking ahead of lower-priority UI work, reducing coordination gaps.</li>
@@ -506,23 +545,23 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       </div>
     </div>
     <div class="lrow">
-      <div class="ldate">Feb 2024 - Jun 2024</div>
+      <div class="ldate">Feb 2024 – Jun 2024</div>
       <div>
         <h4>Asaptickets</h4>
-        <div class="role">Travel Agent - US-based, remote</div>
+        <div class="role">Travel Agent &#183; US-based, remote</div>
         <ul><li>Flight reservations, fare comparisons, itinerary changes, and travel inquiries.</li></ul>
       </div>
     </div>
     <div class="lrow">
-      <div class="ldate">Aug 2023 - Dec 2023</div>
+      <div class="ldate">Aug 2023 – Dec 2023</div>
       <div>
         <h4>LIBT Admission Centre</h4>
-        <div class="role">Customer Service Representative - UK-based, remote</div>
+        <div class="role">Customer Service Representative &#183; UK-based, remote</div>
         <ul><li>Admissions inquiries, programme requirements, and application guidance for prospective students.</li></ul>
       </div>
     </div>
     <div class="lrow">
-      <div class="ldate">2022 - 2026</div>
+      <div class="ldate">2022 – 2026</div>
       <div>
         <h4>The Islamia University of Bahawalpur</h4>
         <div class="role">BS Computer Science</div>
@@ -540,9 +579,9 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <th>Product</th><th>Build</th><th>Data</th>
     </tr>
     <tr>
-      <td><span class="mono">Discovery - delivery</span>Discovery, PRDs, roadmaps, prioritization, experimentation, analytics. Trello for planning and tracking.</td>
+      <td><span class="mono">Discovery &#183; delivery</span>Discovery, PRDs, roadmaps, prioritization, experimentation, analytics. Trello for planning and tracking.</td>
       <td><span class="mono">Full-stack + mobile</span>Full-stack web apps, Android with Kotlin, FastAPI, Next.js, PostgreSQL, Docker, Firebase.</td>
-      <td><span class="mono">Models - dashboards</span>Machine learning model evaluation (scikit-learn, XGBoost), pandas and NumPy analysis, reporting dashboards.</td>
+      <td><span class="mono">Models &#183; dashboards</span>Machine learning model evaluation (scikit-learn, XGBoost), pandas and NumPy analysis, reporting dashboards.</td>
     </tr>
   </table>
 </section>
@@ -553,7 +592,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <h2 class="stitle reveal"><span>The <em>person.</em></span></h2>
   <div class="agrid">
     <div class="photocard">
-      <img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar">
+      <div class="pimg"><img src="assets/aadil.jpg" alt="Portrait of Aadil Ali Mahar"></div>
       <div class="pcap mono">Pakistan</div>
     </div>
     <div>
@@ -581,10 +620,10 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   </div>
 </section>
 
-<footer>
+<footer id="footer">
   <div class="pattern-band" aria-hidden="true"></div>
   <div class="foot-inner">
-    <span class="mono">Aadil Ali Mahar - Product Manager - 2026</span>
+    <span class="mono">Aadil Ali Mahar &#183; Product Manager &#183; 2026</span>
     <span class="mono">Set in Fraunces, Schibsted Grotesk, Plex Mono</span>
     <a class="totop mono" href="#hero">Back to top</a>
   </div>
@@ -599,21 +638,36 @@ var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- screenshot mode (?shot=1&sec=<id>) ---------- */
 var shotMode = /[?&]shot=1/.test(location.search);
+if (/[?&]tall=1/.test(location.search)){
+  var _hero = document.getElementById('hero');
+  if (_hero) _hero.style.height = '900px';
+}
 var shotSec = (location.search.match(/[?&]sec=([a-z]+)/) || [])[1];
+var shotTab = (location.search.match(/[?&]tab=([a-z-]+)/) || [])[1];
 if (shotMode){
   document.documentElement.style.scrollBehavior = 'auto';
+  if (shotTab){
+    document.querySelectorAll('.tabbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tab') === shotTab); });
+    document.querySelectorAll('.tabpane').forEach(function(p){ p.classList.toggle('on', p.id === shotTab); });
+  }
   var _ld = document.getElementById('loader');
   if (_ld) _ld.style.display = 'none';
   document.querySelectorAll('.reveal > span').forEach(function(el){ el.style.transform='none'; });
   var _t = shotSec && document.getElementById(shotSec);
-  if (_t) window.scrollTo(0, _t.getBoundingClientRect().top + window.pageYOffset);
-  document.title = 'SHOT-OK ' + window.pageYOffset;
+  if (_t){
+    var _order = ['hero','intro','work','method','artifacts','experience','toolkit','about','contact','footer'];
+    _order.slice(0, _order.indexOf(shotSec)).forEach(function(id){
+      var _el = document.getElementById(id);
+      if (_el) _el.style.display = 'none';
+    });
+    window.scrollTo(0, 0);
+  }
 }
 
 /* ---------- preloader ---------- */
 var loader = document.getElementById('loader');
 function hideLoader(){ loader.classList.add('gone'); }
-setTimeout(hideLoader, 1200);
+if (!/[?&]pre=1/.test(location.search)) setTimeout(hideLoader, 1200);
 loader.addEventListener('click', hideLoader);
 loader.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){hideLoader();} });
 
@@ -710,9 +764,10 @@ try {
   var holder = document.getElementById('terrain');
   var hero = document.getElementById('hero');
   var scene = new THREE.Scene();
-  var W = hero.clientWidth || window.innerWidth, H = hero.clientHeight || window.innerHeight;
+  var W = holder.clientWidth || window.innerWidth, H = holder.clientHeight || window.innerHeight;
   var camera = new THREE.PerspectiveCamera(42, W/H, 0.1, 200);
-  camera.position.set(0, 9, 26);
+  if (window.innerWidth < 900){ camera.position.set(0, 7, 17); }
+  else { camera.position.set(0, 9, 26); }
   camera.lookAt(0, 0, 0);
   var renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
@@ -724,30 +779,49 @@ try {
   sun.position.set(8, 14, 6);
   scene.add(sun);
 
-  var palette = [0xE9DFC9, 0xCDB99B, 0xEFE7D2, 0xCDB99B, 0xE9DFC9, 0x0E5A57, 0xE9DFC9, 0xCDB99B];
+  var palette = [0xF6F0E2, 0xCDB99B, 0xF1EADB, 0xE3A22C, 0xCDB99B, 0x0E5A57, 0xF6F0E2, 0xCDB99B];
   var layers = [], baseY = [], N = 8;
+  function blobR(a, seed, rBase){
+    return rBase * (1 + 0.16*Math.sin(3*a + seed) + 0.10*Math.cos(5*a - seed*1.7) + 0.06*Math.sin(8*a + seed*0.6));
+  }
   function blobShape(seed, rBase){
     var shape = new THREE.Shape();
     for (var a = 0; a <= Math.PI*2 + 0.01; a += 0.12){
-      var r = rBase * (1 + 0.16*Math.sin(3*a + seed) + 0.10*Math.cos(5*a - seed*1.7) + 0.06*Math.sin(8*a + seed*0.6));
+      var r = blobR(a, seed, rBase);
       var x = Math.cos(a)*r*1.35, y = Math.sin(a)*r*0.8;
       if (a === 0) shape.moveTo(x, y); else shape.lineTo(x, y);
     }
     return shape;
   }
+  var gaps = [0, 0.8, 1.72, 2.42, 3.38, 4.02, 4.96, 5.66];
   for (var i = 0; i < N; i++){
     var geo = new THREE.ExtrudeGeometry(blobShape(i*1.37, 9 - i*0.85), {depth:0.35, bevelEnabled:false});
     geo.rotateX(-Math.PI/2);
     var mat = new THREE.MeshStandardMaterial({color: palette[i % palette.length], roughness:0.95, metalness:0});
     var m = new THREE.Mesh(geo, mat);
-    var y0 = -4.4 + i*0.85;
-    m.position.set(Math.sin(i*2.1)*0.7, y0, Math.cos(i*1.3)*0.5);
+    var y0 = -4.4 + gaps[i];
+    m.position.set(Math.sin(i*2.1)*1.1, y0, Math.cos(i*1.3)*0.9);
+    m.rotation.y = (i % 2 ? 1 : -1) * 0.035;
     baseY.push(y0);
     scene.add(m); layers.push(m);
   }
+  /* hand-drawn contour hatching on two layers */
+  var hatch = [];
+  [2, 5].forEach(function(i){
+    var pts = [];
+    for (var a = 0; a < Math.PI*2; a += 0.1){
+      var r = blobR(a, i*1.37, 9 - i*0.85 + 0.4);
+      pts.push(new THREE.Vector3(Math.cos(a)*r*1.35, 0, Math.sin(a)*r*0.8));
+    }
+    var lg = new THREE.BufferGeometry().setFromPoints(pts);
+    var ll = new THREE.LineLoop(lg, new THREE.LineBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.45}));
+    ll.position.set(layers[i].position.x, baseY[i] + 0.42, layers[i].position.z);
+    ll.userData.i = i;
+    scene.add(ll); hatch.push(ll);
+  });
   var water = new THREE.Mesh(
     new THREE.PlaneGeometry(60, 60),
-    new THREE.MeshBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.5})
+    new THREE.MeshBasicMaterial({color:0x0E5A57, transparent:true, opacity:0.42})
   );
   water.rotation.x = -Math.PI/2; water.position.y = -5.4;
   scene.add(water);
@@ -765,6 +839,10 @@ try {
       layers[i].position.y = baseY[i] + spread * i * 1.35;
     }
     water.position.y = -5.4 + spread * 4.2;
+    hatch.forEach(function(hh){
+      var i = hh.userData.i;
+      hh.position.y = baseY[i] + 0.42 + spread * i * 1.35;
+    });
     callouts.forEach(function(c){
       var idx = parseInt(c.getAttribute('data-co'),10);
       var on = spread > 0.25 + idx*0.1;
@@ -790,7 +868,7 @@ try {
       camera.position.x += ((mx*4) - camera.position.x) * 0.04;
       camera.position.y += ((9 - my*3) - camera.position.y) * 0.04;
       camera.lookAt(0, 0, 0);
-      water.material.opacity = 0.45 + Math.sin(t*0.8)*0.08;
+      water.material.opacity = 0.38 + Math.sin(t*0.8)*0.06;
     }
     renderer.render(scene, camera);
     if (!reduced) requestAnimationFrame(tick);
@@ -798,7 +876,7 @@ try {
   tick();
 
   window.addEventListener('resize', function(){
-    var w2 = hero.clientWidth, h2 = hero.clientHeight;
+    var w2 = holder.clientWidth, h2 = holder.clientHeight;
     camera.aspect = w2/h2; camera.updateProjectionMatrix();
     renderer.setSize(w2, h2);
   });
