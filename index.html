@@ -441,7 +441,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="506" y="238" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#15120F">0.963</text>
         <text x="506" y="256" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;fill:#15120F">ROC-AUC</text>
         <text x="506" y="300" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">12 DISTRICTS</text>
-        <text x="506" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">52 EVENTS</text>
+        <text x="506" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">52 FLOOD EVENTS</text>
       </svg>
       <svg class="fig01-simple" viewBox="0 0 360 400" role="img" aria-label="Authority command center screen, simplified illustration">
         <text x="18" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
@@ -474,8 +474,8 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       </div>
       <div>
         <ul class="wlist">
-          <li>Evaluated on 36 held-out district-year observations (all real records; a small test set): best model F1 0.875, ROC-AUC 0.963.</li>
-          <li>Trained on 52 documented flood events across 12 districts, plus 36 synthetic non-flood observations.</li>
+          <li>Evaluated on 36 held-out district-year observations (all real records, 9 of them floods; a small test set): best model F1 0.875, ROC-AUC 0.963.</li>
+          <li>The best model trained on 144 real district-year records from 12 districts, 2010 to 2024. The database behind the dashboard holds 52 documented flood events. An earlier baseline also used 36 synthetic non-flood rows.</li>
           <li>I kept one platform for the public and for authorities instead of two tools.</li>
         </ul>
         <span class="sticker">F1 0.875 &#183; n = 36</span>
