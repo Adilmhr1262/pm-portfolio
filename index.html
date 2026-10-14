@@ -127,15 +127,17 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .work.r75{grid-template-columns:7fr 5fr}
 .work.flip .wtext{order:2}
 .work.feature{display:block}
-.work.feature .wart{margin-bottom:26px;max-width:960px}
-.work.feature .wcols{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start}
+.work.feature .wart{margin:0 auto 26px;max-width:960px}
+.work.feature .wcols{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start;max-width:960px;margin:0 auto}
 .repolinks{margin-top:12px}
-.repolinks a{text-decoration:none;border-bottom:1px solid var(--ink);font-size:12px}
-.repolinks a:hover{color:var(--vermilion);border-color:var(--vermilion)}
+.repolinks a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;font-size:12px}
+.repolinks a:hover{color:var(--vermilion);text-decoration-color:var(--vermilion)}
 .wnum{font-family:'Fraunces',serif;font-size:clamp(48px,4.5vw,76px);font-weight:300;line-height:1;color:var(--clay)}
 .work h3{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:-.01em;margin:6px 0 4px}
 .work h3 em{font-style:italic}
-.meta{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 0;margin:10px 0 14px}
+.meta .mseg{white-space:nowrap}
+.meta .mseg:not(:last-child)::after{content:"\00B7";margin:0 9px}
 .work p{max-width:52ch;margin-bottom:.9em}
 .wlist{list-style:none;margin:12px 0;max-width:52ch}
 .wlist li{padding-left:20px;position:relative;margin-bottom:6px;font-size:16px}
@@ -232,12 +234,13 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 #contact .bigmail{font-family:'Fraunces',serif;font-weight:600;font-size:min(7vw,2rem);letter-spacing:-.02em;line-height:1.05;white-space:nowrap;text-decoration:none;border-bottom:4px solid var(--vermilion)}
 #contact .bigmail:hover{background:var(--vermilion);color:var(--paper)}
 .crows{margin-top:4vh;display:flex;gap:34px;flex-wrap:wrap;align-items:center}
-.crows .clink,.crows .cbtn{display:inline-flex;align-items:center;min-height:44px}
+.crows .clink{display:inline-flex;align-items:center;padding:14px 0}
+.crows .cbtn{display:inline-flex;align-items:center;min-height:44px}
 .cbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:14px 24px;cursor:pointer;clip-path:polygon(3% 10%,97% 2%,100% 86%,95% 100%,4% 95%,0% 14%);transition:transform .15s}
 .cbtn:active{transform:translate(1px,2px)}
 
-.clink{text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px}
-.clink:hover{color:var(--vermilion);border-color:var(--vermilion)}
+.clink{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.clink:hover{color:var(--vermilion);text-decoration-color:var(--vermilion)}
 
 /* ============ FOOTER ============ */
 footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
@@ -247,12 +250,15 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 
 .wart svg.fig01-simple{display:none}
 .wart svg.fig02-simple,.wart svg.fig03-simple,.wart svg.fig04-simple{display:none}
-.wart .acap{padding-left:10px}
+.wart .acap{padding-left:5%}
 @media (max-width:600px){
   .wart svg.fig01-full{display:none}
   .wart svg.fig01-simple{display:block}
   .wart svg.fig02-full,.wart svg.fig03-full,.wart svg.fig04-full{display:none}
   .wart svg.fig02-simple,.wart svg.fig03-simple,.wart svg.fig04-simple{display:block}
+  .meta{flex-direction:column;gap:2px}
+  .meta .mseg:not(:last-child)::after{content:none}
+  .meta .mseg.mstat{flex-basis:auto}
   .work.feature{display:flex;flex-direction:column}
   .work.feature .wcols{order:1}
   .work.feature .wart{order:2}
@@ -402,7 +408,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <article class="work feature">
     <div class="wart">
       <svg class="fig01-full" viewBox="0 0 640 400" role="img" aria-label="Authority command center screen, drawn as an illustration">
-        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
+        <text x="32" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
         <rect x="14" y="38" width="612" height="350" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="14" y="38" width="612" height="42" fill="#15120F"/>
         <text x="28" y="64" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;fill:#F1EADB">FLOODSAFE &#183; AUTHORITY COMMAND CENTER</text>
@@ -418,7 +424,8 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           <circle cx="46" cy="294" r="5" fill="#0E5A57"/><text x="58" y="298">JACOBABAD &#183; LOW</text>
         </g>
         <rect x="208" y="136" width="272" height="238" fill="#EADFC4" stroke="#15120F" stroke-width="2"/>
-        <g fill="none" stroke="#0E5A57" stroke-width="2">
+        <clipPath id="mapclip"><rect x="208" y="136" width="272" height="238"/></clipPath>
+        <g fill="none" stroke="#0E5A57" stroke-width="2" clip-path="url(#mapclip)">
           <path d="M218 340 Q 260 300, 310 320 T 420 300 T 470 315"/>
           <path d="M218 310 Q 270 270, 320 290 T 430 270 T 470 285"/>
           <path d="M218 280 Q 280 240, 330 260 T 440 240 T 470 255"/>
@@ -437,7 +444,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="506" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">52 EVENTS</text>
       </svg>
       <svg class="fig01-simple" viewBox="0 0 360 400" role="img" aria-label="Authority command center screen, simplified illustration">
-        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
+        <text x="18" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
         <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="8" y="34" width="344" height="40" fill="#15120F"/>
         <text x="20" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1.5px;fill:#F1EADB">FLOODSAFE &#183; COMMAND CENTER</text>
@@ -462,12 +469,12 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <div>
         <div class="wnum">01</div>
         <h3>FloodSafe Pakistan</h3>
-        <div class="meta mono">2025 &#183; Role: builder &#183; Web + Mobile &#183; Status: working prototype</div>
+        <div class="meta mono"><span class="mseg">2025</span><span class="mseg">Role: builder</span><span class="mseg">Web + Mobile</span><span class="mseg mstat">Status: working prototype</span></div>
         <p>A flood-risk prediction and early-warning platform. Three machine learning models classify flood occurrence; the best reaches <b>F1 0.875</b> and <b>ROC-AUC 0.963</b> on 36 held-out district-year observations. A Flutter app and a Next.js web app sit on a FastAPI backend with PostgreSQL/PostGIS for spatial data, plus an authority command center.</p>
       </div>
       <div>
         <ul class="wlist">
-          <li>Evaluated on 36 held-out district-year observations (a small test set, stated up front): best model F1 0.875, ROC-AUC 0.963.</li>
+          <li>Evaluated on 36 held-out district-year observations (a small test set): best model F1 0.875, ROC-AUC 0.963.</li>
           <li>Trained on historical data covering 12 districts and 52 flood events.</li>
           <li>I kept one platform for the public and for authorities instead of two tools.</li>
         </ul>
@@ -481,7 +488,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="wtext">
       <div class="wnum">02</div>
       <h3>PALMS</h3>
-      <div class="meta mono">2025 &#183; Role: builder &#183; Web platform &#183; Status: independent build</div>
+      <div class="meta mono"><span class="mseg">2025</span><span class="mseg">Role: builder</span><span class="mseg">Web platform</span><span class="mseg mstat">Status: independent build</span></div>
       <p>A mastery-based learning platform for education professors. It organizes courses, topics, lessons, and assessments, then guides students along personalized pathways with explainable recommendations that state why an activity is suggested.</p>
       <ul class="wlist">
         <li>Explainability first: every recommendation states why, so a professor trusts it enough to act.</li>
@@ -517,7 +524,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="36" y="280" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Why: you scored 62% on the Fractions drill.</text>
       </svg>
       <svg class="fig02-simple" viewBox="0 0 360 400" role="img" aria-label="Mastery path with an explainable recommendation, simplified illustration">
-        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
+        <text x="18" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
         <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="16" y="56" width="100" height="130" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
         <text x="42" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#F1EADB">DONE</text>
@@ -531,7 +538,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <line x1="230" y1="121" x2="240" y2="121" stroke="#E5462A" stroke-width="3"/>
         <polygon points="236,114 246,121 236,128" fill="#E5462A"/>
         <rect x="16" y="212" width="328" height="150" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
-        <text x="32" y="244" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;fill:#0E5A57">RECOMMENDATION</text>
+        <text x="32" y="244" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;fill:#0E5A57">RECOMMENDATION</text>
         <text x="32" y="280" style="font-family:'Fraunces',serif;font-size:23px;font-weight:600;fill:#15120F">Next up: Fractions quiz</text>
         <text x="32" y="310" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">Why: you scored 62% on the drill.</text>
       </svg>
@@ -543,7 +550,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="wtext">
       <div class="wnum">03</div>
       <h3>Health and Care</h3>
-      <div class="meta mono">2025 &#183; Role: builder &#183; Android &#183; Status: final-year project</div>
+      <div class="meta mono"><span class="mseg">2025</span><span class="mseg">Role: builder</span><span class="mseg">Android</span><span class="mseg mstat">Status: final-year project</span></div>
       <p>An Android ambulance application: booking, one-tap SOS, live tracking, driver communication, booking history, and admin management. Built with Kotlin, Firebase Authentication, Firestore, and Google Maps.</p>
       <ul class="wlist">
         <li>One-tap SOS is the first requirement in the design. Forms can wait; emergencies cannot.</li>
@@ -570,7 +577,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <circle cx="240" cy="284" r="4" fill="#E5462A"/>
       </svg>
       <svg class="fig03-simple" viewBox="0 0 360 400" role="img" aria-label="SOS screen on a phone, simplified illustration">
-        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; SOS SCREEN</text>
+        <text x="18" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; SOS SCREEN</text>
         <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="105" y="56" width="150" height="300" rx="20" fill="#15120F"/>
         <rect x="115" y="66" width="130" height="280" rx="12" fill="#F1EADB"/>
@@ -578,7 +585,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <circle cx="180" cy="178" r="52" fill="#E5462A"/>
         <text x="180" y="190" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:20px;letter-spacing:2px;fill:#F1EADB">SOS</text>
         <text x="180" y="262" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">DISPATCHED</text>
-        <text x="180" y="300" text-anchor="middle" style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;fill:#0E5A57">4 min away</text>
+        <text x="180" y="300" text-anchor="middle" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#0E5A57">4 min away</text>
       </svg>
       <div class="acap mono">One-tap SOS. Drawn as an illustration.</div>
     </div>
@@ -588,7 +595,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="wtext">
       <div class="wnum">04</div>
       <h3>Nutrition Tracker</h3>
-      <div class="meta mono">2025 &#183; Role: concept and design &#183; Web app &#183; Status: concept</div>
+      <div class="meta mono"><span class="mseg">2025</span><span class="mseg">Role: concept and design</span><span class="mseg">Web app</span><span class="mseg mstat">Status: concept</span></div>
       <p>A web app concept for estimating calories and macronutrients from food photos. Design intent: image-based food identification and portion estimation would generate nutritional estimates and meal summaries.</p>
       <ul class="wlist">
         <li>Design intent: estimates would show their uncertainty as a range, never a single confident number.</li>
@@ -602,11 +609,11 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <rect x="133" y="52" width="134" height="184" rx="8" fill="#EADFC4"/>
         <ellipse cx="200" cy="140" rx="52" ry="40" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
         <ellipse cx="182" cy="132" rx="18" ry="12" fill="#E3A22C"/>
-        <ellipse cx="216" cy="146" rx="20" ry="12" fill="#CDB99B"/>
-        <rect x="140" y="66" width="66" height="52" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
-        <text x="140" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">RICE</text>
-        <rect x="212" y="120" width="52" height="52" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
-        <text x="212" y="184" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">DAAL</text>
+        <ellipse cx="224" cy="146" rx="20" ry="12" fill="#CDB99B"/>
+        <rect x="160" y="116" width="44" height="32" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="164" y="108" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">RICE</text>
+        <rect x="208" y="130" width="42" height="36" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="212" y="178" style="font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#E5462A">DAAL</text>
         <rect x="40" y="268" width="320" height="12" fill="#CDB99B"/>
         <rect x="110" y="268" width="150" height="12" fill="#0E5A57"/>
         <text x="40" y="262" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOW</text>
@@ -614,17 +621,17 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="40" y="302" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Shown as a range, not a single number.</text>
       </svg>
       <svg class="fig04-simple" viewBox="0 0 360 400" role="img" aria-label="Food photo with portion estimates and an honest calorie range, simplified illustration">
-        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; HONEST RANGE</text>
+        <text x="18" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; HONEST RANGE</text>
         <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="60" y="56" width="240" height="180" rx="14" fill="#15120F"/>
         <rect x="70" y="66" width="220" height="160" rx="8" fill="#EADFC4"/>
         <ellipse cx="180" cy="150" rx="70" ry="52" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
         <ellipse cx="158" cy="140" rx="24" ry="16" fill="#E3A22C"/>
-        <ellipse cx="206" cy="158" rx="26" ry="16" fill="#CDB99B"/>
-        <rect x="96" y="88" width="80" height="60" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
-        <text x="100" y="80" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">RICE</text>
-        <rect x="200" y="128" width="72" height="60" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
-        <text x="204" y="202" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">DAAL</text>
+        <ellipse cx="218" cy="158" rx="24" ry="16" fill="#CDB99B"/>
+        <rect x="128" y="118" width="60" height="44" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="132" y="110" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">RICE</text>
+        <rect x="190" y="136" width="60" height="44" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="194" y="194" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">DAAL</text>
         <rect x="40" y="268" width="280" height="14" fill="#CDB99B"/>
         <rect x="110" y="268" width="140" height="14" fill="#0E5A57"/>
         <text x="40" y="260" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">LOW</text>
