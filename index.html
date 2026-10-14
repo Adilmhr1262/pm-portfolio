@@ -79,7 +79,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .hero-inner a,.hero-inner button{pointer-events:auto}
 .eyebrow{margin-bottom:2vh}
 .giant{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(58px,12.5vw,190px);line-height:.92;letter-spacing:-.025em}
-.giant em{font-style:italic;font-weight:400}
+.giant em{font-style:italic;font-weight:400;margin-left:.14em}
 .giant .vm{color:var(--vermilion);font-style:italic}
 .giant .n1{white-space:nowrap}
 .positioning{font-size:clamp(20px,1.7vw,25px);max-width:34ch;margin-top:1.5vh}
@@ -149,13 +149,13 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 #method .inner{max-width:1500px;margin:0 auto}
 #method .secnum{color:var(--turmeric);opacity:1}
 #method h2.stitle{color:var(--paper)}
-.steps{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:0;margin-top:4vh;border-top:2px solid var(--clay)}
-.step{padding:22px 18px 8px;border-right:1px dashed var(--clay);position:relative}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:4vh;border-top:2px solid var(--clay)}
+.step{padding:22px 18px 8px;border-right:1px dashed var(--clay);position:relative;display:flex;flex-direction:column}
 .step:last-child{border-right:none}
 .step .snum{font-family:'IBM Plex Mono',monospace;color:var(--turmeric);font-size:12px;letter-spacing:.2em}
 .step h4{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin:8px 0}
 .step p{font-size:15px;line-height:1.55;opacity:.92}
-.step .art{margin-top:10px}
+.step .art{margin-top:auto;padding-top:10px}
 
 /* ============ ARTIFACTS ============ */
 .sample-note{border:2px dashed var(--vermilion);padding:12px 16px;margin:18px 0;max-width:70ch;font-size:15px}
@@ -163,6 +163,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .tabbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:#E7DEC6;border:none;border-right:2px solid var(--ink);border-radius:12px 12px 0 0;padding:14px 22px;cursor:pointer;color:var(--ink);position:relative;top:2px}
 .tabbtn:last-child{border-right:none}
 .tabbtn.on{background:var(--ink);color:var(--paper)}
+.tabbtn .ls{display:none}
 .tabpane{display:none;border:2px solid var(--ink);border-top:none;padding:30px;max-width:none;background:#F6F1E3;box-shadow:7px 7px 0 var(--clay),14px 14px 0 rgba(205,185,155,.45)}
 .tabpane.on{display:block}
 .board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -172,6 +173,7 @@ h2.stitle .hot{color:var(--vermilion);font-style:italic}
 .card .mono{display:block;opacity:.7}
 .prd h4{font-family:'Fraunces',serif;font-size:26px;margin-bottom:6px}
 .prd h6{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin:18px 0 6px;color:var(--teal)}
+#t-prd p,#t-prd ul{max-width:68ch}
 .prd p,.prd li{font-size:15.5px}
 .prd ul{margin-left:20px}
 table.rice{width:100%;border-collapse:collapse;font-size:15px}
@@ -227,9 +229,10 @@ table.tools td .mono{display:block;margin-bottom:8px;opacity:.65}
 
 /* ============ CONTACT ============ */
 #contact{max-width:none;background:var(--paper);text-align:left}
-#contact .bigmail{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,7vw,110px);letter-spacing:-.02em;line-height:1.05;word-break:break-all;text-decoration:none;border-bottom:4px solid var(--vermilion)}
+#contact .bigmail{font-family:'Fraunces',serif;font-weight:600;font-size:min(7vw,2rem);letter-spacing:-.02em;line-height:1.05;white-space:nowrap;text-decoration:none;border-bottom:4px solid var(--vermilion)}
 #contact .bigmail:hover{background:var(--vermilion);color:var(--paper)}
 .crows{margin-top:4vh;display:flex;gap:34px;flex-wrap:wrap;align-items:center}
+.crows .clink,.crows .cbtn{display:inline-flex;align-items:center;min-height:44px}
 .cbtn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:14px 24px;cursor:pointer;clip-path:polygon(3% 10%,97% 2%,100% 86%,95% 100%,4% 95%,0% 14%);transition:transform .15s}
 .cbtn:active{transform:translate(1px,2px)}
 
@@ -243,9 +246,18 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
 .totop{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--vermilion)}
 
 .wart svg.fig01-simple{display:none}
+.wart svg.fig02-simple,.wart svg.fig03-simple,.wart svg.fig04-simple{display:none}
+.wart .acap{padding-left:10px}
 @media (max-width:600px){
   .wart svg.fig01-full{display:none}
   .wart svg.fig01-simple{display:block}
+  .wart svg.fig02-full,.wart svg.fig03-full,.wart svg.fig04-full{display:none}
+  .wart svg.fig02-simple,.wart svg.fig03-simple,.wart svg.fig04-simple{display:block}
+  .work.feature{display:flex;flex-direction:column}
+  .work.feature .wcols{order:1}
+  .work.feature .wart{order:2}
+  .tabbtn .lf{display:none}
+  .tabbtn .ls{display:inline}
 }
 
 /* count up */
@@ -265,7 +277,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   table.tools th,table.tools td{display:block;width:100%}
   #hero{height:auto;min-height:100svh;display:flex;flex-direction:column}
   #terrain{position:relative;height:210px;flex:none}
-  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 24px auto;width:64%;transform:rotate(-2deg)}
+  .archwrap{position:relative;right:auto;top:auto;bottom:auto;margin:2vh 6vw 24px auto;width:64%}
   .archwrap::before{bottom:40px}
   .archcap{display:none}
   .hero-inner{display:contents}
@@ -371,7 +383,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <h2 class="stitle reveal"><span>I manage products <em class="hot">and</em> build them.</span></h2>
   <div class="intro-grid">
     <div>
-      <p>I am a product manager with 2+ years at Smart Marketing Methods, a Germany-based company, working remotely. I run discovery, write the requirements, prioritize the backlog, and stay with the work through delivery. I also build: full-stack web apps, Android apps, and machine learning models.</p>
+      <p>I spent two years as a product manager at Smart Marketing Methods, a Germany-based company, working remotely (Jun 2024 to Aug 2026). I run discovery, write the requirements, prioritize the backlog, and stay with the work through delivery. I also build: full-stack web apps, Android apps, and machine learning models.</p>
       <p>I <span class="uw">dig into the numbers myself</span>, work through trade-offs directly with engineers, and keep the user's need in the room when a decision is due.</p>
     </div>
     <div class="facts">
@@ -390,7 +402,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <article class="work feature">
     <div class="wart">
       <svg class="fig01-full" viewBox="0 0 640 400" role="img" aria-label="Authority command center screen, drawn as an illustration">
-        <text x="24" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
         <rect x="14" y="38" width="612" height="350" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="14" y="38" width="612" height="42" fill="#15120F"/>
         <text x="28" y="64" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;fill:#F1EADB">FLOODSAFE &#183; AUTHORITY COMMAND CENTER</text>
@@ -425,7 +437,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="506" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;fill:#15120F;opacity:.7">52 EVENTS</text>
       </svg>
       <svg class="fig01-simple" viewBox="0 0 360 400" role="img" aria-label="Authority command center screen, simplified illustration">
-        <text x="16" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 01 &#183; COMMAND CENTER</text>
         <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
         <rect x="8" y="34" width="344" height="40" fill="#15120F"/>
         <text x="20" y="60" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1.5px;fill:#F1EADB">FLOODSAFE &#183; COMMAND CENTER</text>
@@ -444,7 +456,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="202" y="312" style="font-family:'Fraunces',serif;font-size:34px;font-weight:600;fill:#15120F">0.963</text>
         <text x="202" y="338" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:1px;fill:#15120F">ROC-AUC</text>
       </svg>
-      <div class="acap mono">Authority command center, drawn as an illustration</div>
+      <div class="acap mono">Authority command center. Drawn as an illustration.</div>
     </div>
     <div class="wcols">
       <div>
@@ -478,7 +490,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <div class="repolinks mono"><a href="https://github.com/Adilmhr1262/palms">Repo: palms</a></div>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 340" role="img" aria-label="Mastery path with an explainable recommendation">
+      <svg class="fig02-full" viewBox="0 0 400 340" role="img" aria-label="Mastery path with an explainable recommendation">
         <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
         <g>
           <rect x="20" y="60" width="76" height="100" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
@@ -490,16 +502,40 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
           <text x="222" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">HERE</text>
           <rect x="296" y="60" width="76" height="100" fill="#F1EADB" stroke="#15120F" stroke-width="2" stroke-dasharray="6 5"/>
           <text x="306" y="116" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">LOCKED</text>
-          <path d="M58 60 L150 60 L242 60 L334 60" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
+          <path d="M97 110 L105 110 M189 110 L197 110 M281 110 L289 110" fill="none" stroke="#E5462A" stroke-width="3" stroke-dasharray="8 6">
             <animate attributeName="stroke-dashoffset" from="56" to="0" dur="2.4s" repeatCount="indefinite"/>
           </path>
+          <g fill="#E5462A">
+            <polygon points="101,103 112,110 101,117"/>
+            <polygon points="193,103 204,110 193,117"/>
+            <polygon points="285,103 296,110 285,117"/>
+          </g>
         </g>
-        <rect x="20" y="196" width="360" height="112" fill="#FBF8EF" stroke="#15120F" stroke-width="2"/>
+        <rect x="20" y="196" width="352" height="112" fill="#FBF8EF" stroke="#15120F" stroke-width="2"/>
         <text x="36" y="226" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;fill:#0E5A57">RECOMMENDATION</text>
         <text x="36" y="252" style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;fill:#15120F">Next up: Fractions quiz</text>
         <text x="36" y="280" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Why: you scored 62% on the Fractions drill.</text>
       </svg>
-      <div class="acap mono">Gates light as skills are mastered; every recommendation says why</div>
+      <svg class="fig02-simple" viewBox="0 0 360 400" role="img" aria-label="Mastery path with an explainable recommendation, simplified illustration">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 02 &#183; MASTERY PATH</text>
+        <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
+        <rect x="16" y="56" width="100" height="130" fill="#0E5A57" stroke="#15120F" stroke-width="2"/>
+        <text x="42" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#F1EADB">DONE</text>
+        <rect x="130" y="56" width="100" height="130" fill="#E3A22C" stroke="#15120F" stroke-width="2"/>
+        <text x="142" y="112" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">YOU ARE</text>
+        <text x="156" y="132" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">HERE</text>
+        <rect x="244" y="56" width="100" height="130" fill="#F1EADB" stroke="#15120F" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="262" y="126" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">LOCKED</text>
+        <line x1="116" y1="121" x2="126" y2="121" stroke="#E5462A" stroke-width="3"/>
+        <polygon points="122,114 132,121 122,128" fill="#E5462A"/>
+        <line x1="230" y1="121" x2="240" y2="121" stroke="#E5462A" stroke-width="3"/>
+        <polygon points="236,114 246,121 236,128" fill="#E5462A"/>
+        <rect x="16" y="212" width="328" height="150" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+        <text x="32" y="244" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;fill:#0E5A57">RECOMMENDATION</text>
+        <text x="32" y="280" style="font-family:'Fraunces',serif;font-size:23px;font-weight:600;fill:#15120F">Next up: Fractions quiz</text>
+        <text x="32" y="310" style="font-family:'IBM Plex Mono',monospace;font-size:13px;fill:#15120F">Why: you scored 62% on the drill.</text>
+      </svg>
+      <div class="acap mono">Mastery path. Drawn as an illustration.</div>
     </div>
   </article>
 
@@ -507,16 +543,16 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="wtext">
       <div class="wnum">03</div>
       <h3>Health and Care</h3>
-      <div class="meta mono">2025 &#183; Role: builder &#183; Android &#183; Status: final-year project &#183; Grade A</div>
+      <div class="meta mono">2025 &#183; Role: builder &#183; Android &#183; Status: final-year project</div>
       <p>An Android ambulance application: booking, one-tap SOS, live tracking, driver communication, booking history, and admin management. Built with Kotlin, Firebase Authentication, Firestore, and Google Maps.</p>
       <ul class="wlist">
-        <li>One-tap SOS shipped before everything else. Forms can wait; emergencies cannot.</li>
-        <li>Final-year project, The Islamia University of Bahawalpur. Grade A.</li>
+        <li>One-tap SOS is the first requirement in the design. Forms can wait; emergencies cannot.</li>
+        <li>Final-year project, The Islamia University of Bahawalpur.</li>
       </ul>
       <span class="sticker">GRADE A</span>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 340" role="img" aria-label="SOS screen on a phone, drawn as an illustration">
+      <svg class="fig03-full" viewBox="0 0 400 340" role="img" aria-label="SOS screen on a phone, drawn as an illustration">
         <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; SOS SCREEN</text>
         <rect x="125" y="44" width="150" height="280" rx="20" fill="#15120F"/>
         <rect x="135" y="54" width="130" height="260" rx="12" fill="#F1EADB"/>
@@ -533,7 +569,18 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <circle cx="160" cy="292" r="4" fill="#15120F"/>
         <circle cx="240" cy="284" r="4" fill="#E5462A"/>
       </svg>
-      <div class="acap mono">One-tap SOS, drawn as an illustration</div>
+      <svg class="fig03-simple" viewBox="0 0 360 400" role="img" aria-label="SOS screen on a phone, simplified illustration">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 03 &#183; SOS SCREEN</text>
+        <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
+        <rect x="105" y="56" width="150" height="300" rx="20" fill="#15120F"/>
+        <rect x="115" y="66" width="130" height="280" rx="12" fill="#F1EADB"/>
+        <text x="180" y="98" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">EMERGENCY</text>
+        <circle cx="180" cy="178" r="52" fill="#E5462A"/>
+        <text x="180" y="190" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:20px;letter-spacing:2px;fill:#F1EADB">SOS</text>
+        <text x="180" y="262" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">DISPATCHED</text>
+        <text x="180" y="300" text-anchor="middle" style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;fill:#0E5A57">4 min away</text>
+      </svg>
+      <div class="acap mono">One-tap SOS. Drawn as an illustration.</div>
     </div>
   </article>
 
@@ -541,7 +588,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="wtext">
       <div class="wnum">04</div>
       <h3>Nutrition Tracker</h3>
-      <div class="meta mono">2025 &#183; Role: builder &#183; Web app &#183; Status: concept</div>
+      <div class="meta mono">2025 &#183; Role: concept and design &#183; Web app &#183; Status: concept</div>
       <p>A web app concept for estimating calories and macronutrients from food photos. Design intent: image-based food identification and portion estimation would generate nutritional estimates and meal summaries.</p>
       <ul class="wlist">
         <li>Design intent: estimates would show their uncertainty as a range, never a single confident number.</li>
@@ -549,7 +596,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       </ul>
     </div>
     <div class="wart">
-      <svg viewBox="0 0 400 340" role="img" aria-label="Food photo with portion estimates and an honest calorie range">
+      <svg class="fig04-full" viewBox="0 0 400 340" role="img" aria-label="Food photo with portion estimates and an honest calorie range">
         <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; HONEST RANGE</text>
         <rect x="125" y="44" width="150" height="200" rx="14" fill="#15120F"/>
         <rect x="133" y="52" width="134" height="184" rx="8" fill="#EADFC4"/>
@@ -566,7 +613,26 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
         <text x="330" y="262" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#15120F">HIGH</text>
         <text x="40" y="302" style="font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#15120F">Shown as a range, not a single number.</text>
       </svg>
-      <div class="acap mono">Portion estimates with the uncertainty shown</div>
+      <svg class="fig04-simple" viewBox="0 0 360 400" role="img" aria-label="Food photo with portion estimates and an honest calorie range, simplified illustration">
+        <text x="20" y="24" style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;fill:#15120F">FIG. 04 &#183; HONEST RANGE</text>
+        <rect x="8" y="34" width="344" height="354" fill="#FBF8EF" stroke="#15120F" stroke-width="3"/>
+        <rect x="60" y="56" width="240" height="180" rx="14" fill="#15120F"/>
+        <rect x="70" y="66" width="220" height="160" rx="8" fill="#EADFC4"/>
+        <ellipse cx="180" cy="150" rx="70" ry="52" fill="#F1EADB" stroke="#15120F" stroke-width="2"/>
+        <ellipse cx="158" cy="140" rx="24" ry="16" fill="#E3A22C"/>
+        <ellipse cx="206" cy="158" rx="26" ry="16" fill="#CDB99B"/>
+        <rect x="96" y="88" width="80" height="60" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="100" y="80" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">RICE</text>
+        <rect x="200" y="128" width="72" height="60" fill="none" stroke="#E5462A" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="204" y="202" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#E5462A">DAAL</text>
+        <rect x="40" y="268" width="280" height="14" fill="#CDB99B"/>
+        <rect x="110" y="268" width="140" height="14" fill="#0E5A57"/>
+        <text x="40" y="260" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">LOW</text>
+        <text x="320" y="260" text-anchor="end" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">HIGH</text>
+        <text x="40" y="316" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">Shown as a range,</text>
+        <text x="40" y="340" style="font-family:'IBM Plex Mono',monospace;font-size:14px;fill:#15120F">not a single number.</text>
+      </svg>
+      <div class="acap mono">Portion estimates with the uncertainty shown. Drawn as an illustration.</div>
     </div>
   </article>
 </section>
@@ -603,8 +669,8 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
   <div class="sample-note">Illustrative samples. I wrote these to show how I work. They are not documents from an employer.</div>
   <div class="tabs" role="tablist">
     <button class="tabbtn on" data-tab="t-road" role="tab">Roadmap</button>
-    <button class="tabbtn" data-tab="t-prd" role="tab">PRD excerpt</button>
-    <button class="tabbtn" data-tab="t-rice" role="tab">RICE table</button>
+    <button class="tabbtn" data-tab="t-prd" role="tab"><span class="lf">PRD excerpt</span><span class="ls">PRD</span></button>
+    <button class="tabbtn" data-tab="t-rice" role="tab"><span class="lf">RICE table</span><span class="ls">RICE</span></button>
   </div>
   <div class="tabpane on" id="t-road" role="tabpanel">
     <div class="mono" style="margin-bottom:16px">Sample product: flood alert feature &#183; illustrative, not real data</div>
@@ -642,7 +708,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
       <thead><tr><th data-k="0" aria-sort="none">Feature<span class="sortind"></span></th><th data-k="1" class="num" aria-sort="none">Reach<span class="unit">thousand users / quarter</span><span class="sortind"></span></th><th data-k="2" class="num" aria-sort="none">Impact<span class="sortind"></span></th><th data-k="3" class="num" aria-sort="none">Confidence<span class="sortind"></span></th><th data-k="4" class="num" aria-sort="none">Effort<span class="unit">person-weeks</span><span class="sortind"></span></th><th data-k="5" class="num ricev" aria-sort="descending">RICE<span class="sortind"> &#9660;</span></th></tr></thead>
       <tbody>
         <tr><td>SMS fallback for low bandwidth</td><td class="num">40</td><td class="num">3</td><td class="num">80%</td><td class="num">2</td><td class="num ricev">48</td></tr>
-        <tr><td>District alert thresholds</td><td class="num">25</td><td class="num">2</td><td class="num">60%</td><td class="num">1</td><td class="num ricev">30</td></tr>
+        <tr><td>District-level alert thresholds</td><td class="num">25</td><td class="num">2</td><td class="num">60%</td><td class="num">1</td><td class="num ricev">30</td></tr>
         <tr><td>Urdu + Sindhi alert copy</td><td class="num">40</td><td class="num">2</td><td class="num">90%</td><td class="num">3</td><td class="num ricev">24</td></tr>
         <tr><td>Historical event replay</td><td class="num">15</td><td class="num">1</td><td class="num">50%</td><td class="num">2</td><td class="num ricev">3.75</td></tr>
       </tbody>
@@ -650,7 +716,7 @@ footer{background:var(--night);color:var(--paper);max-width:none;padding:0}
     <div class="mono rice-key">Reach: thousand users / quarter &#183; Effort: person-weeks &#183; sample numbers</div>
     <div class="rice-stack" id="ricestack">
       <div class="rice-row" data-rice="48" data-reach="40" data-impact="3" data-confidence="80" data-effort="2"><span class="fname">SMS fallback for low bandwidth</span><span class="rscore">48</span><span class="rdetail">Reach 40 &#183; Impact 3 &#183; Confidence 80% &#183; Effort 2</span></div>
-      <div class="rice-row" data-rice="30" data-reach="25" data-impact="2" data-confidence="60" data-effort="1"><span class="fname">District alert thresholds</span><span class="rscore">30</span><span class="rdetail">Reach 25 &#183; Impact 2 &#183; Confidence 60% &#183; Effort 1</span></div>
+      <div class="rice-row" data-rice="30" data-reach="25" data-impact="2" data-confidence="60" data-effort="1"><span class="fname">District-level alert thresholds</span><span class="rscore">30</span><span class="rdetail">Reach 25 &#183; Impact 2 &#183; Confidence 60% &#183; Effort 1</span></div>
       <div class="rice-row" data-rice="24" data-reach="40" data-impact="2" data-confidence="90" data-effort="3"><span class="fname">Urdu + Sindhi alert copy</span><span class="rscore">24</span><span class="rdetail">Reach 40 &#183; Impact 2 &#183; Confidence 90% &#183; Effort 3</span></div>
       <div class="rice-row" data-rice="3.75" data-reach="15" data-impact="1" data-confidence="50" data-effort="2"><span class="fname">Historical event replay</span><span class="rscore">3.75</span><span class="rdetail">Reach 15 &#183; Impact 1 &#183; Confidence 50% &#183; Effort 2</span></div>
     </div>
@@ -808,6 +874,12 @@ if (shotMode){
     });
     window.scrollTo(0, 0);
   }
+  var _pn = document.querySelector('#progress .pnum');
+  if (_pn && shotSec){
+    var _sorder = ['hero','intro','work','method','artifacts','experience','toolkit','about','contact'];
+    var _si = _sorder.indexOf(shotSec);
+    if (_si > -1) _pn.textContent = ('0'+(_si+1)).slice(-2);
+  }
 }
 
 /* ---------- preloader ---------- */
@@ -851,7 +923,7 @@ function onScroll(){
   var idx = 0;
   secs.forEach(function(id,i){
     var el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top < window.innerHeight*0.4) idx = i;
+    if (el && el.offsetParent !== null && el.getBoundingClientRect().top < window.innerHeight*0.4) idx = i;
   });
   pnum.textContent = ('0'+(idx+1)).slice(-2);
 }
